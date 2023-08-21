@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="base commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../Basic RTS/Assets/Scripts/MapGen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Content/Fuel.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectId" id="2JNA1e0RWzjIlGrgtRVmn2872Py" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\coled\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\coled\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\coled\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.2f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\coled\Desktop\Unity\galatica -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\coled\Desktop\Unity\galatica" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.2f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\coled\Desktop\Unity\galatica -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\coled\Desktop\Unity\galatica" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity 2021.3.7f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\coled\Desktop\Unity\galatica -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\coled\Desktop\Unity\galatica" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="" />
+      <created>1671907955883</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671907955883</updated>
+      <workItem from="1671907960661" duration="2884000" />
+      <workItem from="1671923710444" duration="5517000" />
+      <workItem from="1674436382627" duration="655000" />
+      <workItem from="1675219464945" duration="822000" />
+      <workItem from="1675378754294" duration="4615000" />
+      <workItem from="1675477524786" duration="2000" />
+      <workItem from="1675477643958" duration="595000" />
+      <workItem from="1675489296058" duration="1979000" />
+      <workItem from="1675920450386" duration="1200000" />
+      <workItem from="1676057538723" duration="780000" />
+      <workItem from="1676245599695" duration="4705000" />
+      <workItem from="1676314176809" duration="1831000" />
+      <workItem from="1676344060377" duration="646000" />
+      <workItem from="1676596573130" duration="732000" />
+      <workItem from="1676678519662" duration="4524000" />
+      <workItem from="1676698548909" duration="2137000" />
+      <workItem from="1676759460792" duration="3875000" />
+      <workItem from="1676868360490" duration="1232000" />
+      <workItem from="1676947953947" duration="1605000" />
+      <workItem from="1676949592250" duration="2031000" />
+      <workItem from="1677018632876" duration="3339000" />
+      <workItem from="1677027525845" duration="3968000" />
+      <workItem from="1677289499817" duration="832000" />
+      <workItem from="1677379132995" duration="5333000" />
+      <workItem from="1677431962050" duration="874000" />
+      <workItem from="1677529012860" duration="3828000" />
+      <workItem from="1677615568194" duration="1043000" />
+      <workItem from="1679533632793" duration="326000" />
+      <workItem from="1679607645696" duration="646000" />
+      <workItem from="1682446413813" duration="603000" />
+      <workItem from="1686000882708" duration="560000" />
+      <workItem from="1689815124605" duration="1726000" />
+      <workItem from="1690252405813" duration="738000" />
+      <workItem from="1690590451295" duration="617000" />
+      <workItem from="1691367656102" duration="4996000" />
+      <workItem from="1691623126545" duration="1885000" />
+      <workItem from="1691716523849" duration="4790000" />
+      <workItem from="1691783812850" duration="5162000" />
+      <workItem from="1691892798631" duration="3548000" />
+      <workItem from="1692049644291" duration="5174000" />
+      <workItem from="1692117105916" duration="6977000" />
+      <workItem from="1692160962325" duration="356000" />
+      <workItem from="1692600167430" duration="309000" />
+    </task>
+    <task id="LOCAL-00001" summary="base commit">
+      <created>1692600366426</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692600366426</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="base commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="base commit" />
+  </component>
+</project>
