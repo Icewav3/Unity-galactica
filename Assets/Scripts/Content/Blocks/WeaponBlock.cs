@@ -2,15 +2,15 @@
 {
     public class WeaponBlock : Block
     {
-        public float HeatGenerationPerShot { get; }
-        public float Recoil { get; }
-        public AimType AimType { get; }
+        public float heatGenerationPerShot = 1f;
+        public float recoil = 1f;
+        public AimType aimType = AimType.Fixed;
 
-        public WeaponBlock(float heatGeneration, float recoil, AimType aimType)
+        /*public WeaponBlock(float heatGeneration, float recoil, AimType aimType)
         {
             HeatGenerationPerShot = HeatGenerationPerShot;
             Recoil = recoil;
             AimType = aimType;
-        }
+        }*/
     }
 }
