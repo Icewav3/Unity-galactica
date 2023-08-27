@@ -663,6 +663,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6430569073546567852, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
   m_PrefabInstance: {fileID: 6430569072376803458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &826461718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444920208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702b30cca4d6873438111bbcd7ce185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mass: 100
+  cost: 100
+  fuel: 1
+  heatGeneration: 1
+  type: 0
+  thrustPower: 0
+--- !u!114 &826461719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444920208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b8fe1a7b4644040a8e3c4956426f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mass: 100
+  cost: 100
+  fuel: 1
+  heatGeneration: 1
+  rotationPower: 0
+--- !u!114 &826461720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444920208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263d7b6506944481b0de18a5888fd6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mass: 1
+  cost: 100
+  explosive: 1
+  MaxFuel: 100
 --- !u!114 &826461721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,15 +726,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 444920208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b4bceed74e44639942e1748cf7c82d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ecb1664b16b4f45900b80f424b83e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
   mass: 1
   cost: 0
-  heatGeneration: 0
-  thrustPower: 0
-  rotationPower: 0
+  heatGenerationPerShot: 1
+  recoil: 1
+  aimType: 0
 --- !u!1 &915299703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1865,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
       insertIndex: 1
       addedObject: {fileID: 826461721}
+    - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 826461720}
+    - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 826461719}
+    - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 826461718}
   m_SourcePrefab: {fileID: 100100000, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
