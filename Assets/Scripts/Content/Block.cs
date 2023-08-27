@@ -4,9 +4,12 @@ namespace Content
 {
     public abstract class Block : MonoBehaviour
     {
-        protected float Health = 100;
-        protected float Mass = 1; //update these to realistic values
-        protected int Cost;
+        [SerializeField]
+        protected float health = 100;
+        [SerializeField]
+        protected float mass = 1;//update these to realistic values
+        [SerializeField]
+        protected int cost;
 
         // Add any common properties or methods for all blocks here.
     }

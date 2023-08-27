@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +24,31 @@ namespace Content
         }
         // Add any other methods or properties related to Fuel here.
     }
+    
+    public enum FuelType
+    {
+        HydrogenFuel,
+        ElectricCharge,
+        PetroleumFuel
+    }
 
+    public class FuelConverter
+    {
+        public static Fuel ConvertToFuel(FuelType fuelType)
+        {
+            switch (fuelType)
+            {
+                case FuelType.HydrogenFuel:
+                    return new HydrogenFuel();
+                case FuelType.ElectricCharge:
+                    return new ElectricCharge();
+                case FuelType.PetroleumFuel:
+                    return new PetroleumFuel();
+                default:
+                    throw new ArgumentException("Unsupported fuel type");
+            }
+        }
+    }
     public class ElectricCharge : Fuel
     {
         public ElectricCharge() : base("Electric Charge", new Color(1.0f, 0.8f, 0.4f), 0f)
@@ -38,7 +63,6 @@ namespace Content
             // Additional initialization specific to HydrogenFuel class if needed.
         }
     }
-
     public class PetroleumFuel : Fuel
     {
         public PetroleumFuel() : base("Petroleum Fuel", new Color(1.0f, 0.1f, 0.1f), 2f)
