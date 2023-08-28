@@ -1,7 +1,6 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
-using Utilities.Util;
 
 namespace Content
 {
@@ -13,15 +12,20 @@ namespace Content
 
         [SerializeField] protected int cost = 100;
 
+        public Collider2D attachHitbox;
+
         // Add any common properties or methods for all blocks here.
         /// <summary>
         /// Initialization Function
         /// </summary>
         public void Start()
         {
-            
-            //TODO how on earth do I setup attach points?
-            //stuck between auto generating with max of 4, or trying to add manually to all prefabs. What if we want octagon blocks or Triangles???
+            //TODO wip
+            GameObject me = gameObject;
+            //Collider2D hitboxObject = new Collider2D();
+            //hitboxObject = Instantiate(attachHitbox);
+            me.transform.SetParent(me.transform);
+            Helper.util.DisableChildrenWithName(me.transform, "AttachPoint");
         }
     }
 
