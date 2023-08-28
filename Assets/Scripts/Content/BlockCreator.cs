@@ -1,15 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using GameEditor.Blocks;
-namespace GameEditor.Blocks
+namespace Content.Blocks
 {
     public class BlockCreator : MonoBehaviour
     {
+        public Sprite attachPoint;
         void Start()
         {
-            //var blockPrefab = Resources.Load<GameObject>("Prefabs/Block");
-            //Instantiate(Movement, );
-            //TODO generate the prefab and attach script that can be used to easily edit blocks for tweaking
-            //TODO use scriptable objects
+            
         }
     }
 }

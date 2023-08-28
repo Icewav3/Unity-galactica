@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Unity.VisualScripting;
+using UnityEngine;
+using Utilities.Util;
 
 namespace Content
 {
@@ -11,6 +14,15 @@ namespace Content
         [SerializeField] protected int cost = 100;
 
         // Add any common properties or methods for all blocks here.
+        /// <summary>
+        /// Initialization Function
+        /// </summary>
+        public void Start()
+        {
+            
+            //TODO how on earth do I setup attach points?
+            //stuck between auto generating with max of 4, or trying to add manually to all prefabs. What if we want octagon blocks or Triangles???
+        }
     }
 
     public enum AimType
