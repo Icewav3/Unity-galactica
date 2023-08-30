@@ -25,7 +25,7 @@ namespace Content
             //Collider2D hitboxObject = new Collider2D();
             //hitboxObject = Instantiate(attachHitbox);
             me.transform.SetParent(me.transform);
-            Helper.util.DisableChildrenWithName(me.transform, "AttachPoint");
+            Helper.Util.DisableChildrenWithName(me.transform, "AttachPoint");
         }
     }
 

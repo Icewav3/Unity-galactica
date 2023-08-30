@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Helper
 {
-    public static class util
+    public static class Util
     {
         public static void DisableChildrenWithName(Transform parent, string name )
         {
