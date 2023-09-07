@@ -20,7 +20,7 @@ namespace Content
         /// </summary>
         public void Start()
         {
-            //TODO wip
+            //TODO wip connection points
             GameObject me = gameObject;
             //Collider2D hitboxObject = new Collider2D();
             //hitboxObject = Instantiate(attachHitbox);
@@ -29,14 +29,14 @@ namespace Content
         }
     }
 
-    public enum AimType
+    public enum AimType //TODO create aimtype class
     {
         Fixed,
         Turret,
         Cursor
     }
 
-    public enum ThrusterType
+    public enum ThrusterType //todo create Thrustertype class
     {
         Fixed,
         Gimballed,

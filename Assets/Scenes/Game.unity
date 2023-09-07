@@ -678,6 +678,7 @@ MonoBehaviour:
   health: 100
   mass: 100
   cost: 100
+  attachHitbox: {fileID: 0}
   fuel: 1
   heatGeneration: 1
   type: 0
@@ -697,6 +698,7 @@ MonoBehaviour:
   health: 100
   mass: 100
   cost: 100
+  attachHitbox: {fileID: 0}
   fuel: 1
   heatGeneration: 1
   rotationPower: 0
@@ -715,8 +717,9 @@ MonoBehaviour:
   health: 100
   mass: 1
   cost: 100
+  attachHitbox: {fileID: 0}
   explosive: 1
-  MaxFuel: 100
+  maxFuel: 100
 --- !u!114 &826461721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,6 +735,7 @@ MonoBehaviour:
   health: 100
   mass: 1
   cost: 0
+  attachHitbox: {fileID: 0}
   heatGenerationPerShot: 1
   recoil: 1
   aimType: 0
@@ -1530,6 +1534,91 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 200}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1001 &5022398113663511420
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94032972312888227, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938944341573264728, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      propertyPath: m_Name
+      value: Ion_engine_CC_test
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3938944341573264728, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5022398113663511422}
+  m_SourcePrefab: {fileID: 100100000, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+--- !u!1 &5022398113663511421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3938944341573264728, guid: 05fb81872dfac1a4b8b87229a14c66ac, type: 3}
+  m_PrefabInstance: {fileID: 5022398113663511420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5022398113663511422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022398113663511421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702b30cca4d6873438111bbcd7ce185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mass: 100
+  cost: 100
+  attachHitbox: {fileID: 0}
+  fuel: 1
+  heatGeneration: 1
+  type: 0
+  thrustPower: 0
 --- !u!1001 &6430569072376803458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1882,3 +1971,4 @@ SceneRoots:
   - {fileID: 1739121687}
   - {fileID: 1786172402}
   - {fileID: 6430569072376803458}
+  - {fileID: 5022398113663511420}
