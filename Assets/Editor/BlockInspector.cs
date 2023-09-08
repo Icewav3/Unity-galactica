@@ -1,4 +1,5 @@
-using Client.Editor;
+using Client;
+using Client.GameEditor;
 using Content;
 using Content.Blocks;
 using Content.Blocks.MovementBlocks;
@@ -7,9 +8,13 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+
 namespace Editor
 {
     [CustomEditor(typeof(BlockCreator))]
+    //this editor script allows for easier management for each attach point
+    //TODO: implement auto generation for some attach points
     public class BlockCreatorEditor : UnityEditor.Editor
     {
         private BlockCreator blockCreator;
@@ -55,8 +60,8 @@ namespace Editor
                 float handleSize =
                     HandleUtility.GetHandleSize(blockCreator.transform.TransformPoint(blockCreator.attachPoints[i])) *
                     0.1f;
-                Vector2 newPointPosition = Handles.FreeMoveHandle(
-                    blockCreator.transform.TransformPoint(blockCreator.attachPoints[i]), Quaternion.identity,
+                var fmh_59_90_638297678441340406 = Quaternion.identity; Vector2 newPointPosition = Handles.FreeMoveHandle(
+                    blockCreator.transform.TransformPoint(blockCreator.attachPoints[i]),
                     handleSize, Vector2.one, Handles.SphereHandleCap);
                 if (EditorGUI.EndChangeCheck())
                 {

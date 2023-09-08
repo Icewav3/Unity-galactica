@@ -516,6 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b8529dbdf4dc748b475bd9801472d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 1}
+  width: 0.1
 --- !u!114 &769561564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f709365a325cd4c4197801491abbd171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggablePrefab: {fileID: 0}
+  content: {fileID: 0}
+  sprites: []
 --- !u!1 &778700799
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +744,19 @@ MonoBehaviour:
   heatGenerationPerShot: 1
   recoil: 1
   aimType: 0
+--- !u!114 &826461722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444920208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 525728b7a0cb4da99dde135f56acf615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachPoints: []
 --- !u!1 &915299703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,6 +1981,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
       insertIndex: 4
       addedObject: {fileID: 826461718}
+    - targetCorrespondingSourceObject: {fileID: 6430569073546567854, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 826461722}
   m_SourcePrefab: {fileID: 100100000, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
