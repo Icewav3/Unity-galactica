@@ -34,6 +34,7 @@ namespace Editor
             {
                 Undo.RecordObject(blockCreator, "Add Attach Point");
                 ArrayUtility.Add(ref blockCreator.attachPoints, Vector2.zero);
+                
             }
         }
 

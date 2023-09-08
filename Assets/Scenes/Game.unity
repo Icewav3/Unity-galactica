@@ -756,7 +756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525728b7a0cb4da99dde135f56acf615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachPoints: []
+  attachPoints:
+  - {x: 0, y: 0.5}
 --- !u!1 &915299703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1905,10 @@ PrefabInstance:
     - target: {fileID: -1111234988592939634, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 617141132647204158, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
+      propertyPath: fuel
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6430569073546567852, guid: 2550a1e69e3d97e40a97608a37177a47, type: 3}
       propertyPath: m_RootOrder
