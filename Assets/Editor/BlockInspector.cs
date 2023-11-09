@@ -15,6 +15,7 @@ namespace Editor
     [CustomEditor(typeof(BlockCreator))]
     //this editor script allows for easier management for each attach point
     //TODO: implement auto generation for some attach points
+    
     public class BlockCreatorEditor : UnityEditor.Editor
     {
         private BlockCreator blockCreator;
