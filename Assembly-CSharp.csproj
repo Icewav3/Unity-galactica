@@ -56,11 +56,11 @@
      <Compile Include="Assets\Scripts\Client\Player.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\MovementBlocks\ThrusterBlock.cs" />
      <Compile Include="Assets\Scripts\Content\Block.cs" />
-     <Compile Include="Assets\Scripts\Client\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\BlockCreator.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\WeaponBlock.cs" />
      <Compile Include="Assets\Scripts\Ui\MousePosition.cs" />
      <Compile Include="Assets\Scripts\Mechanics\Heat.cs" />
+     <Compile Include="Assets\Scripts\Client\States\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\Draggable.cs" />
      <Compile Include="Assets\Scripts\Client\PlayerVehicle.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\MovementBlock.cs" />
@@ -84,6 +84,7 @@
      <Folder Include="Assets\Scripts\Content" />
      <Folder Include="Assets\Sprites\Resources\BlockSprites" />
      <Folder Include="Assets\Sprites" />
+     <Folder Include="Assets\Scripts\Client\States" />
      <Folder Include="Assets\Scripts\Projectiles" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Scripts\Client\GameEditor" />
