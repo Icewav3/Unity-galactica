@@ -582,8 +582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f709365a325cd4c4197801491abbd171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggablePrefab: {fileID: 0}
-  content: {fileID: 0}
+  draggablePrefab: {fileID: 3619019772329670740, guid: 6960b45fd63d93640ae156a3bbf81c75, type: 3}
+  content: {fileID: 2130228899}
   sprites: []
 --- !u!1 &778700799
 GameObject:
