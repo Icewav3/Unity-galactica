@@ -72,7 +72,7 @@ namespace Content
     }
     public static class FuelManager
     {
-        private static List<Fuel> fuelTypes = new List<Fuel>();
+        private static List<Fuel> _fuelTypes = new List<Fuel>();
 
         public static Fuel ElectricCharge { get; private set; }
         public static Fuel HydrogenFuel { get; private set; }
@@ -84,15 +84,15 @@ namespace Content
             HydrogenFuel = new HydrogenFuel();
             PetroleumFuel = new PetroleumFuel();
 
-            fuelTypes.Add(ElectricCharge);
-            fuelTypes.Add(HydrogenFuel);
-            fuelTypes.Add(PetroleumFuel);
+            _fuelTypes.Add(ElectricCharge);
+            _fuelTypes.Add(HydrogenFuel);
+            _fuelTypes.Add(PetroleumFuel);
             // Add more fuel types if needed
         }
 
         public static List<Fuel> GetFuelTypes()
         {
-            return fuelTypes;
+            return _fuelTypes;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Client
         public float thrusterPower = 0f;
         public float maxFuel = 0f;
         public float currentFuel = 0f;
-        public void addBlock(Block block)
+        public void AddBlock(Block block)
         {
             //TODO add block
         }

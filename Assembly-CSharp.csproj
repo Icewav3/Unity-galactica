@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Client\GameEditor\BlockCreator.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\WeaponBlock.cs" />
      <Compile Include="Assets\Scripts\Ui\MousePosition.cs" />
+     <Compile Include="Assets\Scripts\Content\ShipContainer.cs" />
      <Compile Include="Assets\Scripts\Mechanics\Heat.cs" />
      <Compile Include="Assets\Scripts\Client\States\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\Draggable.cs" />
