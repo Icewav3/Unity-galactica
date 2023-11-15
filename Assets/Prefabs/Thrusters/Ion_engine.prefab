@@ -4924,6 +4924,7 @@ GameObject:
   - component: {fileID: 6430569073546567855}
   - component: {fileID: -1111234988592939634}
   - component: {fileID: -4089065827121543653}
+  - component: {fileID: 617141132647204158}
   m_Layer: 0
   m_Name: Ion_engine
   m_TagString: Untagged
@@ -5072,3 +5073,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &617141132647204158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430569073546567854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702b30cca4d6873438111bbcd7ce185c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  mass: 100
+  cost: 100
+  attachHitbox: {fileID: 0}
+  fuel: 1
+  heatGeneration: 1
+  type: 0
+  thrustPower: 0

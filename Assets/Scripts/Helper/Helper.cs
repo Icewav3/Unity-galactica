@@ -15,6 +15,13 @@ namespace Helper
                 }
             }
         }
+        public static void CheckForNull(object obj, string name)
+        {
+            if (obj == null)
+            {
+                Debug.LogError($"The {name} is null.", null);
+            }
+        }
     }
 }
 

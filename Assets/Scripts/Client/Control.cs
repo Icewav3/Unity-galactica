@@ -21,6 +21,10 @@ public class Control : MonoBehaviour
     private bool _editor;
     private GameObject _canvas;
 
+    
+    /// <summary>
+    /// /Attach this to the parent node of the player, Camera, and Canvas, it manages movement and menu positioning
+    /// </summary>
     void Start()
     {
         //Load Fuel types
@@ -32,9 +36,15 @@ public class Control : MonoBehaviour
            Debug.Log($"Fuel Color: {fuel.FuelColor}");
            Debug.Log($"Base Price: {fuel.BasePricePerUnit}");
        }}
+       //Initialize Player, Camera and Canvas
        _player = GetComponentInChildren<Rigidbody2D>();
         _camera = GetComponentInChildren<Camera>();
         _canvas = gameObject.transform.Find("Canvas").gameObject;
+        //Check for nulls
+        Helper.Util.CheckForNull(_player, "Player");
+        Helper.Util.CheckForNull(_camera, "Camera");
+        Helper.Util.CheckForNull(_canvas, "Canvas");
+        //Client initialization
         _dead = true;
         _id = Time.frameCount;
         _canvas.SetActive(false);
