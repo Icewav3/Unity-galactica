@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Client;
 using Content;
+using Content.Blocks.MovementBlocks;
 using Ui;
 using Unity.Mathematics;
 using UnityEditor;
@@ -27,6 +28,20 @@ public class Control : MonoBehaviour
     /// </summary>
     void Start()
     {
+        //START TEST CODE
+        ThrusterBlock thrusterBlock = gameObject.AddComponent<ThrusterBlock>();
+        thrusterBlock.type = ThrusterType.Fixed;
+        thrusterBlock.thrustPower = 10f;
+        thrusterBlock.mass = 10f;
+        var blocks = new List<Block>();
+        blocks.Add(thrusterBlock);
+        var testContainer = new ShipContainer("test", new GameObject(), blocks);
+        Debug.Log($"Ship Name: {testContainer.shipName}");
+        testContainer.UpdateShip();
+        Debug.Log(testContainer.mass);
+        Debug.Log(testContainer.blocks);
+        //END TEST CODE
+        
         //Load Fuel types
         List<Fuel> fuelList = FuelManager.GetFuelTypes();
 
