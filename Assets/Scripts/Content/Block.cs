@@ -6,11 +6,13 @@ namespace Content
 {
     public abstract class Block : MonoBehaviour
     {
-        [SerializeField] protected float health = 100f;
+        [SerializeField] public float health = 100f;
 
-        [SerializeField] protected float mass = 100f;//update these to realistic values
+        [SerializeField] public float mass = 100f;//update these to realistic values
 
-        [SerializeField] protected int cost = 100;
+        [SerializeField] public int cost = 100;
+        
+        [SerializeField] public float value = 1f; //value is for matchmaking and spawning rules, remove if not needed
 
         public Collider2D attachHitbox;
 
