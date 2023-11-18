@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Content
 {
-    public class ShipContainer
+    public class ShipContainer //TODO
     {
         public Vector2 angularAcceleration;
         public Vector2 angularVelocity;
-        public List<Block> blocks;
+        public List<Block> blocks; //blocks will consist of an array of prefab blocks
         public GameObject core;
         public Vector2 linearAcceleration;
         public Vector2 linearVelocity;
@@ -23,10 +23,11 @@ namespace Content
             this.blocks = blocks;
         }
 
-        public void UpdateShip()
+        public void UpdateShip(Vector2 playerLinearInput, Vector2 playerAngularInput)
         {
             UpdateMass();
-            UpdateLinearAcceleration();
+            UpdateLinearAcceleration(playerLinearInput);
+            UpdateAngularAcceleration(playerAngularInput);
         }
 
         private void UpdateMass()
@@ -37,20 +38,26 @@ namespace Content
             }
         }
 
-        private void UpdateLinearAcceleration()
+        private void UpdateLinearAcceleration(Vector2 inputForce)
         {
             foreach (Block block in blocks)
             {
                 if (block.GetType() == typeof(ThrusterBlock))
                 {
-                    mass = -1f;
+                    linearAcceleration += inputForce / mass;
                 }
             }
         }
 
-        private void UpdateAngularAcceleration()
+        private void UpdateAngularAcceleration(Vector2 inputForce)
         {
-            //TODO
+            foreach (Block block in blocks)
+            {
+                if (block.GetType() == typeof(GyroscopeBlock))
+                {
+                    angularAcceleration += inputForce / mass;
+                }
+            }
         }
     }
 }

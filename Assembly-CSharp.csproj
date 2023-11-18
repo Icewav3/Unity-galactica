@@ -87,6 +87,7 @@
      <Folder Include="Assets\Sprites" />
      <Folder Include="Assets\Scripts\Client\States" />
      <Folder Include="Assets\Scripts\Projectiles" />
+     <Folder Include="Assets\Sprites\concept art" />
      <Folder Include="Assets\Prefabs" />
      <Folder Include="Assets\Scripts\Client\GameEditor" />
      <Reference Include="UnityEngine">
