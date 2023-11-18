@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Client;
 using Content;
@@ -7,7 +8,7 @@ using UnityEngine;
 public class Control : MonoBehaviour
 {
     public bool debug = true;
-    public float acceleration = 0.01f;
+    public float acceleration = 1f;
     public float topSpeed = 3;
     private Camera _camera;
     private GameObject _canvas;
@@ -16,6 +17,9 @@ public class Control : MonoBehaviour
     private int _id;
     private Vector3 _mousePos;
     private Rigidbody2D _player;
+    private Vector2 movement;
+    public Vector2 Deceleration = new Vector2(0.1f, 0.1f);
+    private Vector2 targetVelocity;
 
 
     /// <summary>
@@ -23,25 +27,6 @@ public class Control : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //START TEST CODE
-        ThrusterBlock thrusterBlock = gameObject.AddComponent<ThrusterBlock>();
-        thrusterBlock.type = ThrusterType.Fixed;
-        thrusterBlock.thrustPower = 10f;
-        thrusterBlock.mass = 10f;
-        var blocks = new List<Block>();
-        blocks.Add(thrusterBlock);
-        var testContainer = new ShipContainer("test", new GameObject(), blocks);
-        Debug.Log($"Ship Name: {testContainer.shipName}");
-        testContainer.UpdateShip();
-        Debug.Log("testcontainer mass: " + testContainer.mass);
-        Debug.Log("testcontainer name: " + testContainer.blocks);
-        foreach (var VARIABLE in blocks)
-        {
-            Debug.Log("block type: " + VARIABLE.GetType());
-        }
-        //END TEST CODE
-
-
         //Load Fuel types
         List<Fuel> fuelList = FuelManager.GetFuelTypes();
 
@@ -74,6 +59,8 @@ public class Control : MonoBehaviour
         //Build mode
         bool tab = Input.GetKeyDown(KeyCode.Tab);
         _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition); //gets real mouse position
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
         if (debug)
         {
@@ -92,7 +79,30 @@ public class Control : MonoBehaviour
         }
         else
         {
-            if (_dead)
+            Vector2 movement = new Vector2(horizontalInput, verticalInput);
+            Debug.Log(movement);
+            movement = movement.normalized;
+            //Debug.Log(movement);
+            if (_player.velocity.magnitude < topSpeed)
+            {
+                // Use AddForce for physics-based movement
+                targetVelocity = movement * acceleration;
+            }
+            else
+            {
+                // If the velocity exceeds topSpeed, clamp the magnitude while preserving the direction of travel.
+                targetVelocity = _player.velocity.normalized * topSpeed;
+            }
+            
+            float smoothTime = 0.1f;
+
+            // Smoothly interpolate the current velocity towards the target velocity
+            _player.velocity = Vector2.Lerp(_player.velocity, targetVelocity, smoothTime);
+            
+            //Debug.Log(movement);
+
+
+            /*if (_dead)
             {
                 Player.Create(_id, true);
             }
@@ -102,6 +112,8 @@ public class Control : MonoBehaviour
             {
                 print(Player.Menu());
             }
+
+            Input.
 
             //on keyhold
             if (Input.GetKey(KeyCode.W))
@@ -170,7 +182,12 @@ public class Control : MonoBehaviour
                 {
                     print("d");
                 }
-            }
+            }*/
         }
+    }
+
+    private void FixedUpdate()
+    {
+        _player.AddForce(new Vector2(movement.x * acceleration, movement.y * acceleration), ForceMode2D.Force);
     }
 }
