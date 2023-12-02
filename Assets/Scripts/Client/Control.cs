@@ -32,13 +32,15 @@ public class Control : MonoBehaviour
         blocks.Add(thrusterBlock);
         var testContainer = new ShipContainer("test", new GameObject(), blocks);
         Debug.Log($"Ship Name: {testContainer.shipName}");
-        testContainer.UpdateShip(new Vector2(0,0), (0f));
+        testContainer.UpdateShip(new Vector2(1,1), (1f));
         Debug.Log("testcontainer mass: " + testContainer.mass);
         Debug.Log("testcontainer name: " + testContainer.blocks);
         foreach (var VARIABLE in blocks)
         {
             Debug.Log("block type: " + VARIABLE.GetType());
         }
+        print("Linear acceleration: "+testContainer.linearAcceleration);
+        print("Angular acceleration: "+testContainer.angularAcceleration);
         //END TEST CODE
 
 
