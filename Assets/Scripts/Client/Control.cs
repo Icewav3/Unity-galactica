@@ -32,7 +32,7 @@ public class Control : MonoBehaviour
         blocks.Add(thrusterBlock);
         var testContainer = new ShipContainer("test", new GameObject(), blocks);
         Debug.Log($"Ship Name: {testContainer.shipName}");
-        testContainer.UpdateShip();
+        testContainer.UpdateShip(new Vector2(0,0), (0f));
         Debug.Log("testcontainer mass: " + testContainer.mass);
         Debug.Log("testcontainer name: " + testContainer.blocks);
         foreach (var VARIABLE in blocks)

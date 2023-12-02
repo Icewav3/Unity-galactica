@@ -50,6 +50,8 @@
      <Compile Include="Assets\Scripts\Projectiles\Projectiles.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\GameEditorBlocks.cs" />
      <Compile Include="Assets\Scripts\Client\Control.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement\BaseState.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement\GameState.cs" />
      <Compile Include="Assets\Scripts\Helper\Helper.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\MovementBlocks\GyroscopeBlock.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\GenerateScrollItems.cs" />
@@ -57,11 +59,12 @@
      <Compile Include="Assets\Scripts\Content\Blocks\MovementBlocks\ThrusterBlock.cs" />
      <Compile Include="Assets\Scripts\Content\Block.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\BlockCreator.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement\MainMenuState.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\WeaponBlock.cs" />
+     <Compile Include="Assets\Scripts\SceneManagement\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Ui\MousePosition.cs" />
      <Compile Include="Assets\Scripts\Content\ShipContainer.cs" />
      <Compile Include="Assets\Scripts\Mechanics\Heat.cs" />
-     <Compile Include="Assets\Scripts\Client\States\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Client\GameEditor\Draggable.cs" />
      <Compile Include="Assets\Scripts\Client\PlayerVehicle.cs" />
      <Compile Include="Assets\Scripts\Content\Blocks\MovementBlock.cs" />
@@ -85,7 +88,7 @@
      <Folder Include="Assets\Scripts\Content" />
      <Folder Include="Assets\Sprites\Resources\BlockSprites" />
      <Folder Include="Assets\Sprites" />
-     <Folder Include="Assets\Scripts\Client\States" />
+     <Folder Include="Assets\Scripts\SceneManagement" />
      <Folder Include="Assets\Scripts\Projectiles" />
      <Folder Include="Assets\Sprites\concept art" />
      <Folder Include="Assets\Prefabs" />
