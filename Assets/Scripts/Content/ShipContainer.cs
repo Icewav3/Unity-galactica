@@ -12,7 +12,7 @@ namespace Content
         public List<Block> blocks; //blocks will consist of an array of prefab blocks
         public GameObject core;
         public Vector2 linearAcceleration;
-        public Vector2 linearVelocity;
+        public Vector2 potentialThrustContribution;
         public float mass;
         public String shipName;
 
@@ -26,12 +26,12 @@ namespace Content
         }
         public void UpdateShip(Vector2 playerLinearInput, float playerAngularInput)
         {
-            UpdateMass();
+            CalculateMass();
             UpdateLinearAcceleration(playerLinearInput);
             UpdateAngularAcceleration(playerAngularInput);
         }
-
-        private void UpdateMass()
+        
+        private void CalculateMass()
         {
             foreach (Block block in blocks)
             {
@@ -39,21 +39,10 @@ namespace Content
             }
         }
 
-        private void UpdateLinearAcceleration(Vector2 playerInput)
+        private void UpdateLinearAcceleration(Vector2 playerInput) //todo does this work?
         {
-            foreach (Block block in blocks)
-            {
-                if (block.GetType() == typeof(ThrusterBlock))
-                {
-                    ThrusterBlock thrusterBlock = (ThrusterBlock)block;
-                    
-                    // Calculate thrust contribution based on the block's thrust power
-                    Vector2 thrustContribution = playerInput * thrusterBlock.thrustPower / mass;
-
-                    // Add the thrust contribution to linear acceleration
-                    linearAcceleration += thrustContribution;
-                }
-            }
+            // Use the precalculated potential thrust contribution directly
+            linearAcceleration += potentialThrustContribution * playerInput;
         }
 
         private void UpdateAngularAcceleration(float playerInput)
@@ -66,22 +55,21 @@ namespace Content
                 }
             }
         }
-        private void CalculateLinearAcceleration()
+        private void CalculateLinearAcceleration() //todo does this work?
         {
-            linearVelocity += linearAcceleration;
-
             foreach (Block block in blocks)
             {
                 if (block.GetType() == typeof(ThrusterBlock))
                 {
                     ThrusterBlock thrusterBlock = (ThrusterBlock)block;
                     
-                    // Adjust linear acceleration based on thrust power in a given direction relative to the core
-                    Vector2 directionToThruster = thrusterBlock.transform.position - core.transform.position;
-                    float dotProduct = Vector2.Dot(directionToThruster.normalized, linearAcceleration.normalized);
-                    
-                    // Scale the acceleration based on the alignment of the thruster and the current acceleration
-                    linearAcceleration *= Mathf.Max(dotProduct, 0f);
+                    // Calculate thrust contribution based on the block's thrust power
+                    Vector2 thrustContribution = thrusterBlock.transform.position - core.transform.position;
+                    thrustContribution.Normalize();
+                    thrustContribution *= thrusterBlock.thrustPower / mass;
+
+                    // Accumulate potential thrust contributions
+                    potentialThrustContribution += thrustContribution;
                 }
             }
         }
