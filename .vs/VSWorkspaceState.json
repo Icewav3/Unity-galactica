@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Temp"
+    "\\Assets",
+    "\\Assets\\Scripts",
+    "\\Assets\\Scripts\\Content"
   ],
-  "SelectedNode": "\\Temp\\FSTimeGet-11e94aa1776c6664780d9ff1cf9074b4",
+  "SelectedNode": "\\Assets\\Scripts\\Content\\Block.cs",
   "PreviewInSolutionExplorer": false
 }
