@@ -12,8 +12,8 @@ namespace Content
         public List<Block> blocks; //blocks will consist of an array of prefab blocks
         public GameObject core;
         public Vector2 linearAcceleration;
-        public Vector2 potentialThrustContribution;
         public float mass;
+        public Vector2 potentialThrustContribution;
         public String shipName;
 
         public ShipContainer(string shipName, GameObject core, List<Block> blocks)
@@ -24,13 +24,19 @@ namespace Content
             CalculateLinearAcceleration();
             CalculateAngularAcceleration();
         }
+
+        public void AddBlock(Block block) //to be used in the editor
+        {
+            blocks.Add(block);
+        }
+
         public void UpdateShip(Vector2 playerLinearInput, float playerAngularInput)
         {
             CalculateMass();
             UpdateLinearAcceleration(playerLinearInput);
             UpdateAngularAcceleration(playerAngularInput);
         }
-        
+
         private void CalculateMass()
         {
             foreach (Block block in blocks)
@@ -55,6 +61,7 @@ namespace Content
                 }
             }
         }
+
         private void CalculateLinearAcceleration() //todo does this work?
         {
             foreach (Block block in blocks)
@@ -62,7 +69,7 @@ namespace Content
                 if (block.GetType() == typeof(ThrusterBlock))
                 {
                     ThrusterBlock thrusterBlock = (ThrusterBlock)block;
-                    
+
                     // Calculate thrust contribution based on the block's thrust power
                     Vector2 thrustContribution = thrusterBlock.transform.position - core.transform.position;
                     thrustContribution.Normalize();
@@ -73,6 +80,7 @@ namespace Content
                 }
             }
         }
+
         private void CalculateAngularAcceleration()
         {
             foreach (Block block in blocks)

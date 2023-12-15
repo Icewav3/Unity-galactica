@@ -17,7 +17,7 @@ namespace SceneManagement
         public float Acceleration { get; private set; } = 0.01f;
         public float TopSpeed { get; private set; } = 3f;
 
-        void Start()
+        private void Start()
         {
             InitializeComponents();
             InitializeClient();
@@ -30,7 +30,7 @@ namespace SceneManagement
 
             _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (tab)
+            if (tab) //this is a keybind
             {
                 ToggleEditorMode();
             }
