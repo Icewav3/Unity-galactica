@@ -20,7 +20,10 @@ namespace SceneManagement
         {
             if (Instance != null && Instance != this)
             {
-                Destroy(this.gameObject);
+                if (Instance.gameObject.scene.buildIndex != gameObject.scene.buildIndex)
+                {
+                    Destroy(this.gameObject);
+                }
             }
             else
             {
@@ -35,7 +38,7 @@ namespace SceneManagement
         private void Start()
         {
             if(DebugMode){Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);}
-            TransitionTo("Game");
+            //TransitionTo("Game");
             if(DebugMode){Debug.Log("Booted to scene: " + SceneManager.GetActiveScene().name);}
         }
 
