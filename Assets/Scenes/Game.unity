@@ -406,8 +406,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1058980389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.012529999}
-  m_AnchorMax: {x: 1, y: 0.25926024}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -469,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &769561559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -477,7 +477,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769561558}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -583,9 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draggablePrefab: {fileID: 3619019772329670740, guid: 6960b45fd63d93640ae156a3bbf81c75, type: 3}
   content: {fileID: 2130228899}
-  sprites:
-  - {fileID: 21300000, guid: 0fc9ff37213b32e4f819363b54372523, type: 3}
-  - {fileID: 21300000, guid: 27a27e2f86e473645bf6788197540417, type: 3}
+  sprites: []
 --- !u!1 &778700799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,10 +1066,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2130228899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.5, y: -952.3989}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430729146
 MonoBehaviour:
@@ -1348,8 +1346,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 740789812}
   m_HandleRect: {fileID: 740789811}
   m_Direction: 3
-  m_Value: 0.98336583
-  m_Size: 0.24673024
+  m_Value: 0.9488837
+  m_Size: 0.21935669
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1425,10 +1423,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2130228899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.5, y: -652.3989}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979050138
 MonoBehaviour:

@@ -3,11 +3,7 @@ using UnityEngine;
 
 namespace Client.UI
 {
-    public interface IButtonFunctionality
-    {
-        void OnButtonClick();
-    }
-    public class SceneTransitionButton : MonoBehaviour, IButtonFunctionality
+    public class SceneTransitionButton : MonoBehaviour
     {
         public string sceneName;
         public void OnButtonClick()

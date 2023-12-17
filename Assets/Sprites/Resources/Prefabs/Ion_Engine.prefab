@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: -4089065827121543653}
   - component: {fileID: 617141132647204158}
   m_Layer: 0
-  m_Name: Ion_engine
+  m_Name: Ion_Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
