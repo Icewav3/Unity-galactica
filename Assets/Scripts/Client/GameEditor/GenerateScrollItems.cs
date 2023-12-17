@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GameEditor
+namespace Client.GameEditor
 {
     public class GenerateScrollItems : MonoBehaviour
     {

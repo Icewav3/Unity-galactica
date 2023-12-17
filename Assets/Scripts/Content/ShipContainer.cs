@@ -5,8 +5,9 @@ using UnityEngine;
 
 namespace Content
 {
-    public class ShipContainer //TODO
+    public class ShipContainer
     {
+        public bool isPlayer;
         public float angularAcceleration;
         public Vector2 angularVelocity;
         public List<Block> blocks; //blocks will consist of an array of prefab blocks

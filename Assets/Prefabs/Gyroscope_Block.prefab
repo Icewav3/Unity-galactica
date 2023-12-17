@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3076177423714241821}
   - component: {fileID: -1912127876727980540}
   m_Layer: 0
-  m_Name: Gyroscope
+  m_Name: Gyroscope_Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

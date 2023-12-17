@@ -10,7 +10,7 @@ namespace Client
         public float currentFuel = 0f;
         public void AddBlock(Block block)
         {
-            //TODO add block
+            //look at shipcontainer for this file contents
         }
         
     }
