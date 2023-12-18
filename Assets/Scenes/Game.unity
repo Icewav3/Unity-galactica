@@ -735,7 +735,7 @@ MonoBehaviour:
   mass: 100
   cost: 100
   value: 1
-  attachHitbox: {fileID: 0}
+  attachPoints: []
   fuel: 1
   heatGeneration: 1
   type: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   mass: 100
   cost: 100
   value: 1
-  attachHitbox: {fileID: 0}
+  attachPoints: []
   fuel: 1
   heatGeneration: 1
   rotationPower: 0
@@ -776,7 +776,7 @@ MonoBehaviour:
   mass: 1
   cost: 100
   value: 1
-  attachHitbox: {fileID: 0}
+  attachPoints: []
   explosive: 1
   maxFuel: 100
 --- !u!114 &826461721
@@ -795,7 +795,7 @@ MonoBehaviour:
   mass: 1
   cost: 0
   value: 1
-  attachHitbox: {fileID: 0}
+  attachPoints: []
   heatGenerationPerShot: 1
   recoil: 1
   aimType: 0

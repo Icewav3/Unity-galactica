@@ -52,6 +52,7 @@ namespace SceneManagement
             //Instance.CurrentScene = SceneManager.GetActiveScene().name;
             //Debug.Log(Instance.CurrentScene);
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            //todo eventsystem and audiolistener die on new scene load need to prevent this by doing a check for these objects once we transititon scenes
             //SceneManager.UnloadSceneAsync(Instance.CurrentScene);
             //Instance.CurrentScene = SceneManager.GetActiveScene().name;
             UpdateState();

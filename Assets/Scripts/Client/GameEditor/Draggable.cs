@@ -5,7 +5,7 @@ using Helper;
 
 namespace Client.GameEditor
 {
-    public class Draggable : MonoBehaviour, IDragHandler, IEndDragHandler
+    public class Draggable : MonoBehaviour, IDragHandler, IEndDragHandler //Deprecated - see EditorBlockButton.cs
     {
         private Canvas _canvas; // The canvas the sprite is on
         private RectTransform _rectTransform; // The rect transform of the sprite

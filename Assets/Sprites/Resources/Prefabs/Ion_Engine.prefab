@@ -5088,6 +5088,7 @@ MonoBehaviour:
   health: 100
   mass: 100
   cost: 100
+  value: 1
   attachHitbox: {fileID: 0}
   fuel: 1
   heatGeneration: 1

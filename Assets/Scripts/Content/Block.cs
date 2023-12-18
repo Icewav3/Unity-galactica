@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Content
         
         [SerializeField] public float value = 1f; //value is for matchmaking and spawning rules, remove if not needed
 
-        public Collider2D attachHitbox;
+        public List<Vector2> attachPoints;
 
         // Add any common properties or methods for all blocks here.
         /// <summary>
