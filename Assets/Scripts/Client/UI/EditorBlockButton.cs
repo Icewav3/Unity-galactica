@@ -77,7 +77,7 @@ namespace Client.UI
                     {
                         Debug.Log("Checking attach point: " + attachPoint);
 
-                        if (Vector2.Distance(attachPoint, _instantiatedPrefab.transform.position) < 0.5f) // Change this value based on your needs
+                        if (Vector2.Distance(attachPoint, _instantiatedPrefab.transform.position) < 10f) // Change this value based on your needs
                         {
                             Debug.Log("Attach point is close enough");
 

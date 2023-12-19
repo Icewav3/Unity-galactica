@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Client;
 using Client.GameEditor;
 using Content;
@@ -30,13 +31,20 @@ namespace Editor
             // Draw the default inspector for the script
             DrawDefaultInspector();
 
+            // Add a button to generate basic attach points
+            BlockCreator blockCreator = (BlockCreator)target;
+            if (GUILayout.Button("Generate Attach Points"))
+            {
+                GenerateAttachPoints(blockCreator);
+            }
+            
             // Add a button to add a new point to the array
             if (GUILayout.Button("Add Attach Point"))
             {
                 Undo.RecordObject(_blockCreator, "Add Attach Point");
-                ArrayUtility.Add(ref _blockCreator.attachPoints, Vector2.zero);
-                
+                _blockCreator.attachPoints.Add(Vector2.zero);
             }
+            
         }
 
         private void OnSceneGUI()
@@ -44,7 +52,7 @@ namespace Editor
             Handles.color = Color.red;
 
             // Loop through the attachPoints array
-            for (int i = 0; i < _blockCreator.attachPoints.Length; i++)
+            for (int i = 0; i < _blockCreator.attachPoints.Count; i++)
             {
                 Vector2 newPosition =
                     Handles.PositionHandle(_blockCreator.transform.TransformPoint(_blockCreator.attachPoints[i]),
@@ -62,7 +70,8 @@ namespace Editor
                 float handleSize =
                     HandleUtility.GetHandleSize(_blockCreator.transform.TransformPoint(_blockCreator.attachPoints[i])) *
                     0.1f;
-                var fmh5990638297678441340406 = Quaternion.identity; Vector2 newPointPosition = Handles.FreeMoveHandle(
+                var fmh5990638297678441340406 = Quaternion.identity;
+                Vector2 newPointPosition = Handles.FreeMoveHandle(
                     _blockCreator.transform.TransformPoint(_blockCreator.attachPoints[i]),
                     handleSize, Vector2.one, Handles.SphereHandleCap);
                 if (EditorGUI.EndChangeCheck())
@@ -71,6 +80,26 @@ namespace Editor
                     _blockCreator.attachPoints[i] = _blockCreator.transform.InverseTransformPoint(newPointPosition);
                 }
             }
+        }
+
+        /// <summary>
+        /// Generates attach points for the block at each corner of the sprite.
+        /// This method is intended to be called from the Unity editor.
+        /// </summary>
+        /// <param name="blockCreator">The BlockCreator instance to generate attach points for.</param>
+        private void GenerateAttachPoints(BlockCreator blockCreator)
+        {
+            SpriteRenderer spriteRenderer = blockCreator.GetComponentInChildren<SpriteRenderer>();
+            Sprite sprite = spriteRenderer.sprite;
+
+            blockCreator.attachPoints = new List<Vector2>();
+
+            float halfWidth = sprite.bounds.size.x / 2;
+            float halfHeight = sprite.bounds.size.y / 2;
+            blockCreator.attachPoints.Add(new Vector2(-halfWidth, -halfHeight)); // Bottom left corner
+            blockCreator.attachPoints.Add(new Vector2(halfWidth, -halfHeight)); // Bottom right corner
+            blockCreator.attachPoints.Add(new Vector2(-halfWidth, halfHeight)); // Top left corner
+            blockCreator.attachPoints.Add(new Vector2(halfWidth, halfHeight)); // Top right corner
         }
     }
 }
