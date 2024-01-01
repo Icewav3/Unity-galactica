@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Content
@@ -9,11 +7,20 @@ namespace Content
     {
         [SerializeField] public float health = 100f;
 
-        [SerializeField] public float mass = 100f;//update these to realistic values
+        [SerializeField] public float maxHealth = 100f;
+
+        [SerializeField] public float mass = 100f; //update these to realistic values
 
         [SerializeField] public int cost = 100;
-        
+
         [SerializeField] public float value = 1f; //value is for matchmaking and spawning rules, remove if not needed
+
+        [SerializeField] public string blockName = "Placeholder Name";
+
+        [TextArea] [SerializeField]
+        public string blockDescription = "If you see this, this prefab is missing a description";
+
+        [SerializeField] public string blockRole = "Purpose of the block";
 
         public List<Vector2> attachPoints;
 

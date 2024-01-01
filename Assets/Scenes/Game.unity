@@ -895,9 +895,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   mass: 100
   cost: 100
   value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
   attachPoints: []
   fuel: 1
   heatGeneration: 1
@@ -916,9 +920,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   mass: 100
   cost: 100
   value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
   attachPoints: []
   fuel: 1
   heatGeneration: 1
@@ -936,9 +944,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   mass: 1
   cost: 100
   value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
   attachPoints: []
   explosive: 1
   maxFuel: 100
@@ -955,9 +967,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
   mass: 1
   cost: 0
   value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
   attachPoints: []
   heatGenerationPerShot: 1
   recoil: 1
@@ -1317,10 +1333,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2130228899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.5, y: -952.3989}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430729146
 MonoBehaviour:
@@ -1674,10 +1690,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2130228899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.5, y: -652.3989}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979050138
 MonoBehaviour:
