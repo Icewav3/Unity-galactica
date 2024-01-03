@@ -1,0 +1,55 @@
+﻿ScriptableObject
+---------------------
+- WeaponBlockConfig
+- MovementBlockConfig
+- FuelTankBlockConfig
+- BlockConfig
+    - health: float
+    - maxHealth: float
+    - mass: float
+    - cost: int
+    - value: float
+    - blockName: string
+    - blockDescription: string
+    - blockRole: string
+    - attachPoints: List<Vector2>
+
+Abstract Class
+---------------------
+- Block
+    - blockConfig: BlockConfig
+
+Concrete Classes (Inheriting from Block)
+---------------------
+- WeaponBlock
+    - heatGenerationPerShot: float
+    - recoil: float
+    - aimType: AimType
+
+- MovementBlock
+    - fuel: FuelType
+    - heatGeneration: float
+
+- FuelTankBlock
+    - explosive: bool
+    - maxFuel: float
+    - CurrentFuel: float
+
+- GyroscopeBlock
+    - rotationPower: float
+
+- ThrusterBlock
+    - type: ThrusterType
+    - thrustPower: float
+
+Enum
+---------------------
+- AimType
+    - Fixed
+    - Turret
+    - Cursor
+
+- ThrusterType
+    - Fixed
+    - Gimballed
+    - OmniDirectional

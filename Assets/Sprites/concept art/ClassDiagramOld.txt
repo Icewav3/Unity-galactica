@@ -1,0 +1,53 @@
+﻿Block
+  - health: float
+  - maxHealth: float
+  - mass: float
+  - cost: int
+  - value: float
+  - blockName: string
+  - blockDescription: string
+  - blockRole: string
+  - attachPoints: List<Vector2>
+  ________________________
+  + Start(): void
+
+AimType
+  ________________________
+  + Fixed
+  + Turret
+  + Cursor
+
+ThrusterType
+  ________________________
+  + Fixed
+  + Gimballed
+  + OmniDirectional
+
+WeaponBlock : Block
+  - heatGenerationPerShot: float
+  - recoil: float
+  - aimType: AimType
+  ________________________
+  // Constructor not defined here
+
+MovementBlock : Block
+  - fuel: FuelType
+  - heatGeneration: float
+  ________________________
+  // Constructor not defined here
+
+FuelTankBlock : Block
+  - explosive: bool
+  - maxFuel: float
+  - CurrentFuel: float
+  ________________________
+  // Constructor not defined here
+
+GyroscopeBlock : MovementBlock
+  - rotationPower: float
+  ________________________
+
+ThrusterBlock : MovementBlock
+  - type: ThrusterType
+  - thrustPower: float
+  ________________________

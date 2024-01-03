@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Content
 {
-    public abstract class Block : MonoBehaviour
+    public abstract class Block : MonoBehaviour //TODO https://chat.openai.com/c/2b272a65-a220-45dd-9053-fab9e7e144a0
     {
         [SerializeField] public float health = 100f;
 
