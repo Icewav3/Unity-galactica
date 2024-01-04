@@ -8,19 +8,24 @@ namespace SceneManagement
     {
         public static readonly bool
             DebugMode = true;
+
+        private BaseState _currentState;
+
         // Properties with private setters
-        public EventSystem EventSystem{ get; private set; }
+        public EventSystem EventSystem { get; private set; }
+
         public AudioListener AudioListener { get; private set; }
+
         //public string CurrentScene { get; private set; }
         public static StateMachine Instance { get; private set; }
-        private BaseState _currentState;
-        
+
 
         private void Awake()
         {
             if (Instance != null && Instance != this)
             {
-                if (Instance.gameObject.scene.buildIndex != gameObject.scene.buildIndex)
+                if (Instance.gameObject.scene.buildIndex !=
+                    gameObject.scene.buildIndex)
                 {
                     //Destroy(this.gameObject);
                 }
@@ -28,8 +33,9 @@ namespace SceneManagement
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(this.gameObject); // Don't destroy the StateMachine when loading a new scene
-                
+                DontDestroyOnLoad(this
+                    .gameObject); // Don't destroy the StateMachine when loading a new scene
+
                 InitializeEventSystem();
                 Debug.Log(Instance.EventSystem);
                 DontDestroyOnLoad(this.EventSystem);
@@ -41,9 +47,18 @@ namespace SceneManagement
 
         private void Start()
         {
-            if(DebugMode){Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);}
+            if (DebugMode)
+            {
+                Debug.Log("Started in scene: " +
+                          SceneManager.GetActiveScene().name);
+            }
+
             //TransitionTo("Game");
-            if(DebugMode){Debug.Log("Booted to scene: " + SceneManager.GetActiveScene().name);}
+            if (DebugMode)
+            {
+                Debug.Log("Booted to scene: " +
+                          SceneManager.GetActiveScene().name);
+            }
         }
 
         private void Update()
@@ -63,13 +78,16 @@ namespace SceneManagement
 
         private static void UpdateState()
         {
-            Instance._currentState?.Update(); // Null check before updating state
+            Instance._currentState
+                ?.Update(); // Null check before updating state
         }
+
         private void InitializeEventSystem()
         {
             EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
-            foreach (var es in allEventSystems) // Destroy all EventSystems except ours
+            foreach (var es in
+                     allEventSystems) // Destroy all EventSystems except ours
             {
                 if (es != EventSystem)
                 {
@@ -92,8 +110,10 @@ namespace SceneManagement
 
             if (AudioListener == null)
             {
-                GameObject audioListenerObject = new GameObject("AudioListener");
-                AudioListener = audioListenerObject.AddComponent<AudioListener>();
+                GameObject audioListenerObject =
+                    new GameObject("AudioListener");
+                AudioListener =
+                    audioListenerObject.AddComponent<AudioListener>();
                 DontDestroyOnLoad(audioListenerObject);
             }
         }

@@ -1,6 +1,5 @@
 ﻿namespace Content.Blocks
 {
-
     public class FuelTankBlock : Block
     {
         public bool explosive = true;

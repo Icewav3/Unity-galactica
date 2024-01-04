@@ -7,17 +7,21 @@ namespace Content
 {
     public class ShipContainer
     {
-        public bool isPlayer;
         public float angularAcceleration;
         public Vector2 angularVelocity;
-        public List<Block> blocks; //blocks will consist of an array of prefab blocks
+
+        public List<Block>
+            blocks; //blocks will consist of an array of prefab blocks
+
         public GameObject core;
+        public bool isPlayer;
         public Vector2 linearAcceleration;
         public float mass;
         public Vector2 potentialThrustContribution;
         public String shipName;
-        
-        public ShipContainer(string shipName, GameObject core, List<Block> blocks)
+
+        public ShipContainer(string shipName, GameObject core,
+            List<Block> blocks)
         {
             this.shipName = shipName;
             this.core = core;
@@ -31,7 +35,8 @@ namespace Content
             blocks.Add(block);
         }
 
-        public void UpdateShip(Vector2 playerLinearInput, float playerAngularInput)
+        public void UpdateShip(Vector2 playerLinearInput,
+            float playerAngularInput)
         {
             CalculateMass();
             UpdateLinearAcceleration(playerLinearInput);
@@ -46,7 +51,8 @@ namespace Content
             }
         }
 
-        private void UpdateLinearAcceleration(Vector2 playerInput) //todo does this work?
+        private void
+            UpdateLinearAcceleration(Vector2 playerInput) //todo does this work?
         {
             // Use the precalculated potential thrust contribution directly
             linearAcceleration += potentialThrustContribution * playerInput;
@@ -58,7 +64,8 @@ namespace Content
             {
                 if (block.GetType() == typeof(GyroscopeBlock))
                 {
-                    angularAcceleration += playerInput * angularAcceleration / mass;
+                    angularAcceleration +=
+                        playerInput * angularAcceleration / mass;
                 }
             }
         }
@@ -72,7 +79,9 @@ namespace Content
                     ThrusterBlock thrusterBlock = (ThrusterBlock)block;
 
                     // Calculate thrust contribution based on the block's thrust power
-                    Vector2 thrustContribution = thrusterBlock.transform.position - core.transform.position;
+                    Vector2 thrustContribution =
+                        thrusterBlock.transform.position -
+                        core.transform.position;
                     thrustContribution.Normalize();
                     thrustContribution *= thrusterBlock.thrustPower / mass;
 
@@ -88,7 +97,8 @@ namespace Content
             {
                 if (block.GetType() == typeof(GyroscopeBlock))
                 {
-                    angularAcceleration += ((GyroscopeBlock)block).rotationPower;
+                    angularAcceleration +=
+                        ((GyroscopeBlock)block).rotationPower;
                 }
             }
         }

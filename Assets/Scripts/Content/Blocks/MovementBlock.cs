@@ -1,7 +1,4 @@
-﻿using System;
-using Content;
-using static Content.Fuel;
-namespace Content.Blocks
+﻿namespace Content.Blocks
 {
     public abstract class MovementBlock : Block
     {
