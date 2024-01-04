@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Content
 {
     public abstract class
-        Block : MonoBehaviour //TODO https://chat.openai.com/c/2b272a65-a220-45dd-9053-fab9e7e144a0
+        Block : MonoBehaviour
     {
         //todo idea implement CPU block that has a reccomended block management value that will control how responsive the ship is, 
 
@@ -17,8 +17,7 @@ namespace Content
 
         [SerializeField] public int cost = 100;
 
-        [SerializeField]
-        public float
+        [SerializeField] public float
             value = 1f; //value is for matchmaking and spawning rules, remove if not needed
 
         [SerializeField] public string blockName = "Placeholder Name";
