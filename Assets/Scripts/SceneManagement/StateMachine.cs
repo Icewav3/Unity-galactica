@@ -22,7 +22,7 @@ namespace SceneManagement
             {
                 if (Instance.gameObject.scene.buildIndex != gameObject.scene.buildIndex)
                 {
-                    Destroy(this.gameObject);
+                    //Destroy(this.gameObject);
                 }
             }
             else
@@ -31,7 +31,11 @@ namespace SceneManagement
                 DontDestroyOnLoad(this.gameObject); // Don't destroy the StateMachine when loading a new scene
                 
                 InitializeEventSystem();
-                InitializeAudioListener();
+                Debug.Log(Instance.EventSystem);
+                DontDestroyOnLoad(this.EventSystem);
+                // InitializeAudioListener();
+                // Debug.Log(Instance.AudioListener);
+                // DontDestroyOnLoad(this.AudioListener);
             }
         }
 
@@ -52,9 +56,8 @@ namespace SceneManagement
             //Instance.CurrentScene = SceneManager.GetActiveScene().name;
             //Debug.Log(Instance.CurrentScene);
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            //todo eventsystem and audiolistener die on new scene load need to prevent this by doing a check for these objects once we transititon scenes
-            //SceneManager.UnloadSceneAsync(Instance.CurrentScene);
-            //Instance.CurrentScene = SceneManager.GetActiveScene().name;
+            Instance.InitializeEventSystem();
+            Instance.InitializeAudioListener();
             UpdateState();
         }
 
@@ -64,9 +67,17 @@ namespace SceneManagement
         }
         private void InitializeEventSystem()
         {
-            EventSystem = FindObjectOfType<EventSystem>();
+            EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
-            if (EventSystem == null)
+            foreach (var es in allEventSystems) // Destroy all EventSystems except ours
+            {
+                if (es != EventSystem)
+                {
+                    Destroy(es.gameObject);
+                }
+            }
+
+            if (EventSystem == null) // If there is no EventSystem, create one
             {
                 GameObject eventSystemObject = new GameObject("EventSystem");
                 EventSystem = eventSystemObject.AddComponent<EventSystem>();

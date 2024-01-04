@@ -16,9 +16,6 @@ namespace Content
         public float mass;
         public Vector2 potentialThrustContribution;
         public String shipName;
-
-        //todo think of implementation of the arrays of attachpoints?
-        //ideas - check array against the array of attach points on new object, - remove clones
         
         public ShipContainer(string shipName, GameObject core, List<Block> blocks)
         {

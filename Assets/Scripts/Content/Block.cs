@@ -5,6 +5,8 @@ namespace Content
 {
     public abstract class Block : MonoBehaviour //TODO https://chat.openai.com/c/2b272a65-a220-45dd-9053-fab9e7e144a0
     {
+        //todo idea implement CPU block that has a reccomended block management value that will control how responsive the ship is, 
+        
         [SerializeField] public float health = 100f;
 
         [SerializeField] public float maxHealth = 100f;
@@ -30,7 +32,6 @@ namespace Content
         /// </summary>
         public void Start()
         {
-            //TODO wip connection points
             GameObject me = gameObject;
             //Collider2D hitboxObject = new Collider2D();
             //hitboxObject = Instantiate(attachHitbox);
