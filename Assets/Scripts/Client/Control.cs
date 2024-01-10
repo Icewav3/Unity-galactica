@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Client;
 using Content;
 using Content.Blocks.MovementBlocks;
+using Mechanics;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Control : MonoBehaviour
 {
@@ -11,11 +13,14 @@ public class Control : MonoBehaviour
     public float topSpeed = 3;
     private Camera _camera;
     private GameObject _canvas;
+    private GameObject _hudCanvas; // Added a new HUD canvas for the damage indicator
     private bool _dead;
     private bool _editor;
     private int _id;
     private Vector3 _mousePos;
     private Rigidbody2D _player;
+    private Text _damageIndicator; 
+    private bool _damageState = false; 
 
 
     /// <summary>
@@ -43,7 +48,6 @@ public class Control : MonoBehaviour
         print("Angular acceleration: "+testContainer.angularAcceleration);
         //END TEST CODE
 
-
         //Load Fuel types
         List<Fuel> fuelList = FuelManager.GetFuelTypes();
 
@@ -61,10 +65,22 @@ public class Control : MonoBehaviour
         _player = GetComponentInChildren<Rigidbody2D>();
         _camera = GetComponentInChildren<Camera>();
         _canvas = gameObject.transform.Find("Canvas").gameObject;
+        _hudCanvas = new GameObject("HUDCanvas");  // Instantiate a new GameObject for HUD Canvas
+        _hudCanvas.AddComponent<Canvas>();  // Attach a Canvas component to the HUDCanvas GameObject.
+        _hudCanvas.AddComponent<CanvasScaler>(); // Attach a Canvas Scaler component
+        _hudCanvas.AddComponent<GraphicRaycaster>(); // Attach a Raycaster component for UI interaction
+
+        _damageIndicator = new GameObject("DamageIndicator").AddComponent<Text>();
+        _damageIndicator.transform.SetParent(_hudCanvas.transform); // Set the _damageIndicator parent to _hudCanvas
+        _damageIndicator.text = "damage";
+        _damageIndicator.enabled = true;
+
         //Check for nulls
         Helper.Util.CheckForNull(_player, "Player");
         Helper.Util.CheckForNull(_camera, "Camera");
         Helper.Util.CheckForNull(_canvas, "Canvas");
+        Helper.Util.CheckForNull(_hudCanvas, "HudCanvas"); // Check if new HudCanvas is not null
+
         //Client initialization
         _dead = true;
         _id = Time.frameCount;
@@ -73,6 +89,28 @@ public class Control : MonoBehaviour
 
     void Update()
     {
+        //Start TEST CODE
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _damageState = !_damageState;
+            _damageIndicator.enabled = _damageState;
+        }
+
+        if (_damageState && Input.GetMouseButtonDown(0))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            if (hit.collider != null)
+            {
+                HealthManager health = hit.collider.gameObject.GetComponent<HealthManager>();
+                if (health != null)
+                    health.TakeDamage(50f);
+            }
+        }
+
+        if (_damageState)
+            _damageIndicator.transform.position = Input.mousePosition + new Vector3(10, 10, 0);
+        //END TEST CODE
         //Build mode
         bool tab = Input.GetKeyDown(KeyCode.Tab);
         _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition); //gets real mouse position

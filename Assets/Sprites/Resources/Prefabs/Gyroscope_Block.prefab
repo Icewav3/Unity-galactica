@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7231900599729735920}
   - component: {fileID: -3076177423714241821}
   - component: {fileID: -1912127876727980540}
+  - component: {fileID: 759854828380560346}
   m_Layer: 0
   m_Name: Gyroscope_Block
   m_TagString: Untagged
@@ -171,10 +172,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b8fe1a7b4644040a8e3c4956426f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
   mass: 100
   cost: 100
-  attachHitbox: {fileID: 0}
+  value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
+  attachPoints: []
   fuel: 1
+  fuelConsumption: 1
   heatGeneration: 1
   rotationPower: 0
+--- !u!114 &759854828380560346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264399225221623364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f610db5611254e5d813337d6ad3b6095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

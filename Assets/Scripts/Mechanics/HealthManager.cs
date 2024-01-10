@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Mechanics
 {
-    public class Damageable : MonoBehaviour
+    public class HealthManager : MonoBehaviour
     {
         private Block _blockScript;
         private float _currentHealth;
@@ -44,7 +44,7 @@ namespace Mechanics
             _blockScript = GetComponent<Block>();
             if (_blockScript == null)
             {
-                Debug.LogError("Damageable script attached to non-block object");
+                Debug.LogError("HealthManager script attached to non-block object");
             }
             else
             {
