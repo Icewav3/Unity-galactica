@@ -5001,9 +5001,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702b30cca4d6873438111bbcd7ce185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  mass: 100
+  health: 0
+  maxHealth: 1
+  mass: 1000
   cost: 100
   value: 1
   blockName: Placeholder Name
@@ -5011,7 +5011,8 @@ MonoBehaviour:
   blockRole: Purpose of the block
   attachPoints:
   - {x: 0, y: 0.5}
-  fuel: 1
+  fuel: 0
+  fuelConsumption: 2
   heatGeneration: 1
   type: 0
   thrustPower: 0

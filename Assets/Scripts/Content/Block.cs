@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SceneManagement;
 using UnityEngine;
 
 namespace Content
@@ -6,9 +7,11 @@ namespace Content
     public abstract class
         Block : MonoBehaviour
     {
-        //todo idea implement CPU block that has a reccomended block management value that will control how responsive the ship is, 
+        //todo component ize this stuff
+        
+        //todo idea implement mainframe block should add a score (CPU) which is used to determine the effectiveness of functional blocks. Each functional block has a processing score which indicates how much CPU it needs to work at max efficiency. The percentage over 100%  will be the scaling modifier of the block's effectiveness
 
-        [SerializeField] public float health = 100f;
+        // [SerializeField] public float health = 100f;
 
         [SerializeField] public float maxHealth = 100f;
 
@@ -28,8 +31,19 @@ namespace Content
         [SerializeField] public string blockRole = "Purpose of the block";
 
         public List<Vector2> attachPoints;
-
-        // Add any common properties or methods for all blocks here.
+        
+        /// <summary>
+        /// Destroys the block object. If debug mode is enabled, it will log the block name to the console.
+        /// </summary>
+        public void DestroyBlock()
+        {
+            if (StateMachine.DebugMode)
+            {
+                Debug.Log("Destroyed block: " + blockName);
+            }
+            Destroy(gameObject);
+        }
+        
         /// <summary>
         /// Initialization Function
         /// </summary>
