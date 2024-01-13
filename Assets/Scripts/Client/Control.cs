@@ -39,6 +39,7 @@ public class Control : MonoBehaviour
         var blocks = new List<Block>();
         blocks.Add(thrusterBlock);
         var testContainer = new ShipContainer("test", new GameObject(), blocks);
+        testContainer.InitalizeShip();
         Debug.Log($"Ship Name: {testContainer.ShipName}");
         testContainer.UpdateShip(new Vector2(1, 1), (1f));
         Debug.Log("testcontainer mass: " + testContainer.Mass);

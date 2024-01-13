@@ -8,6 +8,9 @@ namespace Content
     /// <summary>
     /// Represents a container for a ship in the game.
     /// </summary>
+    /// <remarks>
+    /// Purpose is to consolidate all data that is contained in each block to one location to allow for faster execution
+    /// </remarks>
     public class ShipContainer
     {
         /// <summary>
@@ -73,6 +76,14 @@ namespace Content
             this.ShipName = shipName;
             this.Core = core;
             this.Blocks = blocks;
+        }
+
+        /// <summary>
+        /// Initializes the ship by calculating linear and angular acceleration. To be used when the ship is done being edited
+        /// </summary>
+        public void InitalizeShip()
+        {
+            CalculateMass();
             CalculateLinearAcceleration();
             CalculateAngularAcceleration();
         }
@@ -94,7 +105,6 @@ namespace Content
         public void UpdateShip(Vector2 playerLinearInput,
             float playerAngularInput)
         {
-            CalculateMass();
             UpdateLinearAcceleration(playerLinearInput);
             UpdateAngularAcceleration(playerAngularInput);
         }
@@ -144,7 +154,7 @@ namespace Content
         /// <summary>
         /// Calculates the linear acceleration based on the thrust power of each thruster block in the provided collection of blocks.
         /// </summary>
-        private void CalculateLinearAcceleration() //todo does this work?
+        private void CalculateLinearAcceleration()
         {
             foreach (Block block in Blocks)
             {
@@ -152,18 +162,20 @@ namespace Content
                 {
                     ThrusterBlock thrusterBlock = (ThrusterBlock)block;
 
-                    // Calculate thrust contribution based on the block's thrust power
-                    Vector2 thrustContribution =
-                        thrusterBlock.transform.position -
-                        Core.transform.position;
-                    thrustContribution.Normalize();
-                    thrustContribution *= thrusterBlock.thrustPower / Mass;
+                    // Calculate thrust contribution based on the block's thrust direction
+                    Vector2
+                        thrustDirection =
+                            thrusterBlock.transform
+                                .up; // Assuming the thruster's forward direction is its "thrust" direction
+                    Vector2 thrustContribution = thrustDirection *
+                        thrusterBlock.thrustPower / Mass;
 
                     // Accumulate potential thrust contributions
                     PotentialThrustContribution += thrustContribution;
                 }
             }
         }
+
 
         /// <summary>
         /// Calculates the angular acceleration by adding up the rotation power of all gyroscope blocks in the given list of blocks.
