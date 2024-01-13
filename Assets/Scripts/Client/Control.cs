@@ -4,7 +4,7 @@ using Content;
 using Content.Blocks.MovementBlocks;
 using Mechanics;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class Control : MonoBehaviour
 {
@@ -13,14 +13,17 @@ public class Control : MonoBehaviour
     public float topSpeed = 3;
     private Camera _camera;
     private GameObject _canvas;
-    private GameObject _hudCanvas; // Added a new HUD canvas for the damage indicator
+    private Text _damageIndicator;
+    private bool _damageState = false;
     private bool _dead;
     private bool _editor;
+
+    private GameObject
+        _hudCanvas; // Added a new HUD canvas for the damage indicator
+
     private int _id;
     private Vector3 _mousePos;
     private Rigidbody2D _player;
-    private Text _damageIndicator; 
-    private bool _damageState = false; 
 
 
     /// <summary>
@@ -36,16 +39,18 @@ public class Control : MonoBehaviour
         var blocks = new List<Block>();
         blocks.Add(thrusterBlock);
         var testContainer = new ShipContainer("test", new GameObject(), blocks);
-        Debug.Log($"Ship Name: {testContainer.shipName}");
-        testContainer.UpdateShip(new Vector2(1,1), (1f));
-        Debug.Log("testcontainer mass: " + testContainer.mass);
-        Debug.Log("testcontainer name: " + testContainer.blocks);
-        foreach (var VARIABLE in blocks)
+        Debug.Log($"Ship Name: {testContainer.ShipName}");
+        testContainer.UpdateShip(new Vector2(1, 1), (1f));
+        Debug.Log("testcontainer mass: " + testContainer.Mass);
+        Debug.Log("testcontainer name: " + testContainer.Blocks);
+        foreach (var variable in blocks)
         {
-            Debug.Log("block type: " + VARIABLE.GetType());
+            Debug.Log("block type: " + variable.GetType());
         }
-        print("Linear acceleration: "+testContainer.linearAcceleration);
-        print("Angular acceleration: "+testContainer.angularAcceleration);
+
+        print("Linear acceleration: " + testContainer.LinearAcceleration);
+        print("Angular acceleration: " + testContainer.AngularAcceleration);
+        print("thrust:" + testContainer.PotentialThrustContribution);
         //END TEST CODE
 
         //Load Fuel types
@@ -65,13 +70,22 @@ public class Control : MonoBehaviour
         _player = GetComponentInChildren<Rigidbody2D>();
         _camera = GetComponentInChildren<Camera>();
         _canvas = gameObject.transform.Find("Canvas").gameObject;
-        _hudCanvas = new GameObject("HUDCanvas");  // Instantiate a new GameObject for HUD Canvas
-        _hudCanvas.AddComponent<Canvas>();  // Attach a Canvas component to the HUDCanvas GameObject.
-        _hudCanvas.AddComponent<CanvasScaler>(); // Attach a Canvas Scaler component
-        _hudCanvas.AddComponent<GraphicRaycaster>(); // Attach a Raycaster component for UI interaction
+        _hudCanvas =
+            new GameObject(
+                "HUDCanvas"); // Instantiate a new GameObject for HUD Canvas
+        _hudCanvas
+            .AddComponent<
+                Canvas>(); // Attach a Canvas component to the HUDCanvas GameObject.
+        _hudCanvas
+            .AddComponent<CanvasScaler>(); // Attach a Canvas Scaler component
+        _hudCanvas
+            .AddComponent<
+                GraphicRaycaster>(); // Attach a Raycaster component for UI interaction
 
-        _damageIndicator = new GameObject("DamageIndicator").AddComponent<Text>();
-        _damageIndicator.transform.SetParent(_hudCanvas.transform); // Set the _damageIndicator parent to _hudCanvas
+        _damageIndicator =
+            new GameObject("DamageIndicator").AddComponent<Text>();
+        _damageIndicator.transform.SetParent(_hudCanvas
+            .transform); // Set the _damageIndicator parent to _hudCanvas
         _damageIndicator.text = "damage";
         _damageIndicator.enabled = true;
 
@@ -79,7 +93,8 @@ public class Control : MonoBehaviour
         Helper.Util.CheckForNull(_player, "Player");
         Helper.Util.CheckForNull(_camera, "Camera");
         Helper.Util.CheckForNull(_canvas, "Canvas");
-        Helper.Util.CheckForNull(_hudCanvas, "HudCanvas"); // Check if new HudCanvas is not null
+        Helper.Util.CheckForNull(_hudCanvas,
+            "HudCanvas"); // Check if new HudCanvas is not null
 
         //Client initialization
         _dead = true;
@@ -102,18 +117,22 @@ public class Control : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit.collider != null)
             {
-                HealthManager health = hit.collider.gameObject.GetComponent<HealthManager>();
+                HealthManager health =
+                    hit.collider.gameObject.GetComponent<HealthManager>();
                 if (health != null)
                     health.TakeDamage(50f);
             }
         }
 
         if (_damageState)
-            _damageIndicator.transform.position = Input.mousePosition + new Vector3(10, 10, 0);
+            _damageIndicator.transform.position =
+                Input.mousePosition + new Vector3(10, 10, 0);
         //END TEST CODE
         //Build mode
         bool tab = Input.GetKeyDown(KeyCode.Tab);
-        _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition); //gets real mouse position
+        _mousePos =
+            _camera.ScreenToWorldPoint(Input
+                .mousePosition); //gets real mouse position
 
         if (debug)
         {
@@ -152,7 +171,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(_player.velocity.x, topSpeed);
+                    _player.velocity =
+                        new Vector2(_player.velocity.x, topSpeed);
                 }
 
                 if (debug)
@@ -169,7 +189,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(_player.velocity.x, -topSpeed);
+                    _player.velocity =
+                        new Vector2(_player.velocity.x, -topSpeed);
                 }
 
                 if (debug)
@@ -186,7 +207,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(-topSpeed, _player.velocity.y);
+                    _player.velocity =
+                        new Vector2(-topSpeed, _player.velocity.y);
                 }
 
                 if (debug)
@@ -203,7 +225,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(topSpeed, _player.velocity.y);
+                    _player.velocity =
+                        new Vector2(topSpeed, _player.velocity.y);
                 }
 
                 if (debug)
