@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using Client;
 using Content;
 using Content.Blocks.MovementBlocks;
@@ -18,8 +18,7 @@ public class Control : MonoBehaviour
     private bool _dead;
     private bool _editor;
 
-    private GameObject
-        _hudCanvas; // Added a new HUD canvas for the damage indicator
+    private GameObject _hudCanvas;
 
     private int _id;
     private Vector3 _mousePos;
@@ -27,7 +26,7 @@ public class Control : MonoBehaviour
 
 
     /// <summary>
-    /// /Attach this to the parent node of the player, Camera, and Canvas, it manages movement and menu positioning
+    /// Attach this to the parent node of the player, Camera, and Canvas, it manages movement and menu positioning
     /// </summary>
     void Start()
     {
@@ -38,7 +37,7 @@ public class Control : MonoBehaviour
         thrusterBlock.mass = 10f;
         var blocks = new List<Block>();
         blocks.Add(thrusterBlock);
-        var testContainer = new ShipContainer("test", new GameObject(), blocks);
+        var testContainer = new ShipContainer("test", blocks);
         testContainer.InitalizeShip();
         Debug.Log($"Ship Name: {testContainer.ShipName}");
         testContainer.UpdateShip(new Vector2(1, 1), (1f));
@@ -83,10 +82,9 @@ public class Control : MonoBehaviour
             .AddComponent<
                 GraphicRaycaster>(); // Attach a Raycaster component for UI interaction
 
-        _damageIndicator =
-            new GameObject("DamageIndicator").AddComponent<Text>();
-        _damageIndicator.transform.SetParent(_hudCanvas
-            .transform); // Set the _damageIndicator parent to _hudCanvas
+        _damageIndicator = new GameObject("DamageIndicator").AddComponent<Text>();
+        // Set the _damageIndicator parent to _hudCanvas
+        _damageIndicator.transform.SetParent(_hudCanvas.transform); 
         _damageIndicator.text = "damage";
         _damageIndicator.enabled = true;
 
@@ -94,8 +92,7 @@ public class Control : MonoBehaviour
         Helper.Util.CheckForNull(_player, "Player");
         Helper.Util.CheckForNull(_camera, "Camera");
         Helper.Util.CheckForNull(_canvas, "Canvas");
-        Helper.Util.CheckForNull(_hudCanvas,
-            "HudCanvas"); // Check if new HudCanvas is not null
+        Helper.Util.CheckForNull(_hudCanvas, "HudCanvas");
 
         //Client initialization
         _dead = true;
@@ -237,4 +234,4 @@ public class Control : MonoBehaviour
             }
         }
     }
-}
+}*/

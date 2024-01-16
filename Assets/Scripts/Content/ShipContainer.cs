@@ -13,6 +13,7 @@ namespace Content
     /// </remarks>
     public class ShipContainer
     {
+        public Rigidbody2D rb;
         /// <summary>
         /// Represents the angular acceleration of an object.
         /// </summary>
@@ -70,19 +71,19 @@ namespace Content
         /// <summary>
         /// Represents a container object for a ship in a game.
         /// </summary>
-        public ShipContainer(string shipName, GameObject core,
-            List<Block> blocks)
+        public ShipContainer(string shipName, List<Block> blocks)
         {
             this.ShipName = shipName;
-            this.Core = core;
             this.Blocks = blocks;
+            InitializeShip();
         }
 
         /// <summary>
         /// Initializes the ship by calculating linear and angular acceleration. To be used when the ship is done being edited
         /// </summary>
-        public void InitalizeShip()
+        public void InitializeShip()
         {
+            rb = new Rigidbody2D();
             CalculateMass();
             CalculateLinearAcceleration();
             CalculateAngularAcceleration();

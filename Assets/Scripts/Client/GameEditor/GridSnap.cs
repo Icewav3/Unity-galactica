@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//deprecated
 public class GridSnap : MonoBehaviour
 {
     public Color color = Color.red;

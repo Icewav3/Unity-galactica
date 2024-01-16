@@ -7,9 +7,13 @@ namespace SceneManagement
         private Camera _camera;
         private GameObject _canvas;
 
-        public override void Update()
+        public override void Start()
         {
             print("MainMenuState");
+        }
+        public override void Update()
+        {
+            
         }
     }
 }

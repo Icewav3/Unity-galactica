@@ -1,7 +1,7 @@
 using Content;
 
 namespace Client
-{
+{//deprecated
     public class PlayerVehicle
     {
         public float CurrentFuel = 0f;

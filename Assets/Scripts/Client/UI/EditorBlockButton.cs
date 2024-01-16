@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Client.GameEditor;
 using Content;
 using UnityEngine;
@@ -26,6 +28,14 @@ namespace Client.UI
             }
 
             _mainCamera = Camera.main;
+        }
+
+        private void Awake()
+        {
+            if (ShipContainer == null)
+            {
+                ShipContainer = new ShipContainer("Player", new List<Block>());
+            }
         }
 
         public void OnButtonClick()
