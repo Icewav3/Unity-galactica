@@ -6,17 +6,22 @@ namespace SceneManagement
 {
     public class StateMachine : MonoBehaviour
     {
-        
+        //topic decoupling or robust code?
+        //This state machine/service managers purpose is to allow my game to be more robust. for example occasionaly the event system would vanish or we would have 2 instances, beacuse of this I implmented a check upon scene instanciation to see if the event manager exists and is the correct one. this makes my project more decoupled and less reliant on other parts
+        //topic game states
+        //due to needing seperate logic in different game states and their correpsonding scenes, I have different scene scripts, and due to the way I am working on making on making things more decoupled it would be logical to not have a random gameobject control the scene logic and instead the statemachine to act as a service manager to run it. problem is this involves coupling the scripts and relying on a literal inspector connection between the 2 scripts. This has caused pain
         public static readonly bool DebugMode = true;
-
+        public GameObject gameState; // assign in Inspector
+        public GameObject mainMenuState; // assign in Inspector
         private BaseState _currentState;
-
         public EventSystem EventSystem { get; private set; }
         public AudioListener AudioListener { get; private set; }
         public static StateMachine Instance { get; private set; }
 
         private void Awake()
         {
+            TransitionToState(gameState);
+            //singleton pattern
             if (Instance != null && Instance != this)
             {
                 if (Instance.gameObject.scene.buildIndex != gameObject.scene.buildIndex)
@@ -32,29 +37,13 @@ namespace SceneManagement
             }
         }
 
-        private void OnEnable()
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-
-        private void OnDisable()
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            InitializeEventSystem();
-            InitializeAudioListener();
-            _currentState.Start();
-        }
-
         private void Start()
         {
             if (DebugMode)
             {
                 Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);
             }
+
             // Remove the unnecessary calls here
             if (DebugMode)
             {
@@ -62,17 +51,33 @@ namespace SceneManagement
             }
         }
 
-        private void Update()
+        private void Update() //this function here is the culprit along with start()
         {
             _currentState.Update();
         }
 
-        public static void TransitionTo(string sceneName)
+        //third attempt at trying to redo this 
+        public void TransitionToState(GameObject statePrefab)
+        {
+            if (_currentState != null)
+            {
+                Destroy(_currentState.gameObject);
+            }
+
+            GameObject newStateObject = Instantiate(statePrefab);
+
+
+            BaseState statescript = newStateObject.GetComponent<BaseState>();
+            statescript.Start(); // this won't properly execute since statescript is always null
+        }
+
+        public static void TransitionTo(string sceneName) //somehow ended up w/a duplicate here
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
 
-        private void InitializeEventSystem()
+        private void
+            InitializeEventSystem() // this is an example of me trying to make my code more robust - checking and instancing event system if it doesnt exist could prevent game breaking bugs if something happened during scene initalization
         {
             EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
