@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SceneManagement
 {
-    public abstract class BaseState : MonoBehaviour //parent state class
+    public abstract class BaseState : MonoBehaviour, IState //parent state class
     {
-        public abstract void Start();
+        public abstract void StartState();
 
-        public abstract void Update();
+        public abstract void UpdateState();
     }
 }

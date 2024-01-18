@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -11,16 +12,13 @@ namespace SceneManagement
         //topic game states
         //due to needing seperate logic in different game states and their correpsonding scenes, I have different scene scripts, and due to the way I am working on making on making things more decoupled it would be logical to not have a random gameobject control the scene logic and instead the statemachine to act as a service manager to run it. problem is this involves coupling the scripts and relying on a literal inspector connection between the 2 scripts. This has caused pain
         public static readonly bool DebugMode = true;
-        public GameObject gameState; // assign in Inspector
-        public GameObject mainMenuState; // assign in Inspector
-        private BaseState _currentState;
+        private String _currentState;
         public EventSystem EventSystem { get; private set; }
         public AudioListener AudioListener { get; private set; }
         public static StateMachine Instance { get; private set; }
 
         private void Awake()
         {
-            TransitionToState(gameState);
             //singleton pattern
             if (Instance != null && Instance != this)
             {
@@ -39,6 +37,11 @@ namespace SceneManagement
 
         private void Start()
         {
+            if (_currentState == null)
+            {
+                _currentState = SceneManager.GetActiveScene().name;
+            }
+
             if (DebugMode)
             {
                 Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);
@@ -53,27 +56,14 @@ namespace SceneManagement
 
         private void Update() //this function here is the culprit along with start()
         {
-            _currentState.Update();
-        }
-
-        //third attempt at trying to redo this 
-        public void TransitionToState(GameObject statePrefab)
-        {
-            if (_currentState != null)
-            {
-                Destroy(_currentState.gameObject);
-            }
-
-            GameObject newStateObject = Instantiate(statePrefab);
-
-
-            BaseState statescript = newStateObject.GetComponent<BaseState>();
-            statescript.Start(); // this won't properly execute since statescript is always null
+            //_currentState.UpdateState(); no longer needed????
         }
 
         public static void TransitionTo(string sceneName) //somehow ended up w/a duplicate here
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            StateMachine.Instance
+                .InitializeEventSystem(); //Access this specific insatnce of the state machine to make it work with static
         }
 
         private void

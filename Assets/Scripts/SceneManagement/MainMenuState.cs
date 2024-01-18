@@ -2,18 +2,18 @@
 
 namespace SceneManagement
 {
-    public class MainMenuState : BaseState
+    public class MainMenuState : MonoBehaviour
     {
         private Camera _camera;
         private GameObject _canvas;
 
-        public override void Start()
+        public void Start()
         {
             print("MainMenuState");
         }
-        public override void Update()
+
+        public void Update()
         {
-            
         }
     }
 }
