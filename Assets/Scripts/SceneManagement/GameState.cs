@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Client;
 using Content;
-using Content.Blocks.MovementBlocks;
-using Mechanics;
+using Helper;
 using UnityEngine;
 using UnityEngine.UI;
-using Helper;
 
 namespace SceneManagement
 {
-    public class GameState : BaseState
+    public class GameState : MonoBehaviour
     {
         public bool DebugMode = true;
 
@@ -28,14 +25,18 @@ namespace SceneManagement
         private Vector3 _mousePos;
         private ShipContainer _playerShipContainer;
 
-        public override void Start()
+        public void Start()
         {
-            if(DebugMode){Debug.Log("starting Gamestate");}
+            if (DebugMode)
+            {
+                Debug.Log("starting Gamestate");
+            }
+
             InitializeComponents();
             InitializeFuelTypes();
         }
 
-        public override void Update()
+        public void Update()
         {
             bool tab = Input.GetKeyDown(KeyCode.Space);
             _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
@@ -54,35 +55,49 @@ namespace SceneManagement
                 HandleInput();
             }
         }
-        
+
         private void InitializeComponents()
         {
-            if(DebugMode){Debug.Log("initalizing");}
+            if (DebugMode)
+            {
+                Debug.Log("initalizing");
+            }
+
             GameObject playerObject = Util.FindOrCreateGameObject("Player");
             _camera = Util.FindOrCreateComponent<Camera>("Main Camera");
             _canvas = Util.FindOrCreateGameObject("Canvas");
-            
-            if(DebugMode){Debug.Log("setting parents");}
-            
+
+            if (DebugMode)
+            {
+                Debug.Log("setting parents");
+            }
+
             //  Set camera and canvas as children of player
             _camera.transform.parent = playerObject.transform;
             _canvas.transform.parent = playerObject.transform;
-            
-            if (DebugMode) { Debug.Log("looking for canvas");}
-            
+
+            if (DebugMode)
+            {
+                Debug.Log("looking for canvas");
+            }
+
             // Load the Canvas prefab from Resources folder and instantiate it under the `_canvas` GameObject
             var canvasPrefab = Resources.Load("Prefabs/Canvas") as GameObject;
-            if(canvasPrefab != null){
+            if (canvasPrefab != null)
+            {
                 _canvas = Instantiate(canvasPrefab, _canvas.transform, true);
                 _canvas.SetActive(false);
-            } else {
-                Debug.LogError("Can't load 'Canvas' prefab from Resources Folder. Please make sure the prefab exists and is placed in Assets/Resources folder");
+            }
+            else
+            {
+                Debug.LogError(
+                    "Can't load 'Canvas' prefab from Resources Folder. Please make sure the prefab exists and is placed in Assets/Resources folder");
             }
 
             Util.CheckForNull(playerObject, "Player");
             Util.CheckForNull(_camera, "Camera");
             Util.CheckForNull(_canvas, "Canvas");
-            
+
             InitializeClient();
         }
 
@@ -100,6 +115,7 @@ namespace SceneManagement
                 }
             }
         }
+
         /// <summary>
         /// This method initializes the player. 
         /// It should not be called directly, 
