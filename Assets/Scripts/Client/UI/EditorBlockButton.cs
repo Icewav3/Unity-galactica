@@ -14,6 +14,13 @@ namespace Client.UI
         private Camera _mainCamera;
         public ShipContainer ShipContainer { get; set; } // Reference to the ShipContainer
 
+        private void Awake()
+        {
+            if (ShipContainer == null)
+            {
+                ShipContainer = new ShipContainer("Player", new List<Block>());
+            }
+        }
         private void Start()
         {
             Image imageComponent = GetComponent<Image>();
@@ -28,14 +35,6 @@ namespace Client.UI
             }
 
             _mainCamera = Camera.main;
-        }
-
-        private void Awake()
-        {
-            if (ShipContainer == null)
-            {
-                ShipContainer = new ShipContainer("Player", new List<Block>());
-            }
         }
 
         public void OnButtonClick()

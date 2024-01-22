@@ -11,7 +11,7 @@ namespace Content
     /// <remarks>
     /// Purpose is to consolidate all data that is contained in each block to one location to allow for faster execution
     /// </remarks>
-    public class ShipContainer
+    public class ShipContainer : MonoBehaviour
     {
         public Rigidbody2D rb;
         /// <summary>
@@ -83,6 +83,11 @@ namespace Content
         /// </summary>
         public void InitializeShip()
         {
+            if (IsPlayer)
+            {
+                if (Camera.main != null) Camera.main.transform.parent = this.transform;
+                if (ShipName == null) name = "myship"; //todo temp
+            }
             rb = new Rigidbody2D();
             CalculateMass();
             CalculateLinearAcceleration();

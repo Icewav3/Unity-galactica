@@ -5,26 +5,18 @@ using UnityEngine;
 
 namespace Client
 {
-    public static class Player //client
+    public class Player : MonoBehaviour //client todo make this into a prefab, gamestate works in TestingScene
     {
-        private static bool _host;
-        private static int _id;
-        public static void Create(int id, bool host)
+        public string shipName;
+        public GameObject shipContainer;
+        public Canvas canvas;
+        
+        // Unity's Start or Awake methods can be used to initialize the references
+        private void Awake()
         {
-            _host = host;
-            _id = id;
-        }
-
-        public static String Menu()
-        {
-            if (_host)
-            {
-                return "player is host";
-            }
-            else
-            {
-                return "player is not host";
-            }
+            shipContainer = GameObject.Find("ShipContainer");
+            shipName = shipContainer.name;
+            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         }
     }
 }

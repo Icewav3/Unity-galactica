@@ -17,9 +17,8 @@ namespace SceneManagement
         private Camera _camera;
         private GameObject _canvas;
         private Text _damageIndicator;
-        private bool _damageState = false;
         private bool _dead;
-        private bool _editor = true;
+        private bool _editor = false;
         private GameObject _hudCanvas;
         private int _id;
         private Vector3 _mousePos;
@@ -38,7 +37,7 @@ namespace SceneManagement
 
         public void Update()
         {
-            bool tab = Input.GetKeyDown(KeyCode.Space);
+            bool tab = Input.GetKeyDown(KeyCode.Tab);
             _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
 
             if (tab) //this is a keybind
@@ -49,7 +48,7 @@ namespace SceneManagement
             {
                 if (_dead)
                 {
-                    Player.Create(_id, true);
+                    //Player.Create(_id);
                 }
 
                 HandleInput();
@@ -63,9 +62,9 @@ namespace SceneManagement
                 Debug.Log("initalizing");
             }
 
-            GameObject playerObject = Util.FindOrCreateGameObject("Player");
+            GameObject playerObject = GameObject.Find("Player");
             _camera = Util.FindOrCreateComponent<Camera>("Main Camera");
-            _canvas = Util.FindOrCreateGameObject("Canvas");
+            _canvas = GameObject.Find("Canvas");
 
             if (DebugMode)
             {
@@ -80,9 +79,9 @@ namespace SceneManagement
             {
                 Debug.Log("looking for canvas");
             }
-
+            
             // Load the Canvas prefab from Resources folder and instantiate it under the `_canvas` GameObject
-            var canvasPrefab = Resources.Load("Prefabs/Canvas") as GameObject;
+            /*var canvasPrefab = Resources.Load("Prefabs/Canvas") as GameObject;
             if (canvasPrefab != null)
             {
                 _canvas = Instantiate(canvasPrefab, _canvas.transform, true);
@@ -92,7 +91,7 @@ namespace SceneManagement
             {
                 Debug.LogError(
                     "Can't load 'Canvas' prefab from Resources Folder. Please make sure the prefab exists and is placed in Assets/Resources folder");
-            }
+            }*/
 
             Util.CheckForNull(playerObject, "Player");
             Util.CheckForNull(_camera, "Camera");
@@ -139,6 +138,7 @@ namespace SceneManagement
             if (DebugMode)
             {
                 Debug.Log("Editor state: " + _editor);
+                Debug.Log("Sim speed: "+Time.timeScale);
             }
         }
 
@@ -147,7 +147,7 @@ namespace SceneManagement
             // Handle player input here...
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log(Player.Menu());
+                //Debug.Log(Player.Menu());
             }
 
             if (Input.GetKey(KeyCode.W))

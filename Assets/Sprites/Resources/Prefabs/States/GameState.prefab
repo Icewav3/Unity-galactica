@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   Acceleration: 0.01
-  TopSpeed: 3
+  TopSpeed: 5
