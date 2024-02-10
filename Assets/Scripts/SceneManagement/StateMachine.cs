@@ -62,12 +62,10 @@ namespace SceneManagement
         public static void TransitionTo(string sceneName) //somehow ended up w/a duplicate here
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            StateMachine.Instance
-                .InitializeEventSystem(); //Access this specific insatnce of the state machine to make it work with static
+            StateMachine.Instance.InitializeEventSystem(); //Access this specific insatnce of the state machine to make it work with static
         }
 
-        private void
-            InitializeEventSystem() // this is an example of me trying to make my code more robust - checking and instancing event system if it doesnt exist could prevent game breaking bugs if something happened during scene initalization
+        private void InitializeEventSystem() // this is an example of me trying to make my code more robust - checking and instancing event system if it doesnt exist could prevent game breaking bugs if something happened during scene initalization
         {
             EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
