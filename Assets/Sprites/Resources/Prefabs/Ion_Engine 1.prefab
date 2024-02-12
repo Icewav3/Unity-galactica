@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2524915654499574008
+--- !u!1001 &8822446567986907588
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -51,26 +51,26 @@ PrefabInstance:
     - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0fc9ff37213b32e4f819363b54372523, type: 3}
+      objectReference: {fileID: 21300000, guid: 27a27e2f86e473645bf6788197540417, type: 3}
     - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3780078974913367462, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: leftColliderActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3780078974913367462, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: rightColliderActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3780078974913367462, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: bottomColliderActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_Name
-      value: Gyroscope_Block
+      value: Ion_Engine 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78,23 +78,23 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -943804852642468227}
+      addedObject: {fileID: 6331332078277714202}
   m_SourcePrefab: {fileID: 100100000, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
---- !u!1 &8270278772439715173 stripped
+--- !u!1 &3143516636435539033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
-  m_PrefabInstance: {fileID: 2524915654499574008}
+  m_PrefabInstance: {fileID: 8822446567986907588}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-943804852642468227
+--- !u!114 &6331332078277714202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270278772439715173}
+  m_GameObject: {fileID: 3143516636435539033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b8fe1a7b4644040a8e3c4956426f00, type: 3}
+  m_Script: {fileID: 11500000, guid: 702b30cca4d6873438111bbcd7ce185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
@@ -108,4 +108,5 @@ MonoBehaviour:
   fuel: 1
   fuelConsumption: 1
   heatGeneration: 1
-  rotationPower: 0
+  type: 0
+  thrustPower: 1

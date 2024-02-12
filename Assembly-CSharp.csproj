@@ -105,8 +105,10 @@
     <Compile Include="Assets\Scripts\Client\PlayerVehicle.cs" />
     <Compile Include="Assets\Scripts\Content\ArmorBlock.cs" />
     <Compile Include="Assets\Scripts\Content\Blocks\MovementBlock.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\AttachPointManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\unused.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\AttachPointCollider.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Content\Projectile.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
