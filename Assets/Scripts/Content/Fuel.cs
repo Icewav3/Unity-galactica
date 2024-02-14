@@ -70,7 +70,7 @@ namespace Content
             // Additional initialization specific to PetroleumFuel class if needed.
         }
     }
-    public static class FuelManager
+    public static class FuelInitializer
     {
         private static List<Fuel> _fuelTypes = new List<Fuel>();
 
@@ -78,7 +78,7 @@ namespace Content
         public static Fuel HydrogenFuel { get; private set; }
         public static Fuel PetroleumFuel { get; private set; }
 
-        static FuelManager()
+        static FuelInitializer()
         {
             ElectricCharge = new ElectricCharge();
             HydrogenFuel = new HydrogenFuel();

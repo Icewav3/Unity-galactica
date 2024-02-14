@@ -46,17 +46,6 @@ namespace SceneManagement
             {
                 Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);
             }
-
-            // Remove the unnecessary calls here
-            if (DebugMode)
-            {
-                Debug.Log("Booted to scene: " + SceneManager.GetActiveScene().name);
-            }
-        }
-
-        private void Update() //this function here is the culprit along with start()
-        {
-            //_currentState.UpdateState(); no longer needed????
         }
 
         public static void TransitionTo(string sceneName) //somehow ended up w/a duplicate here

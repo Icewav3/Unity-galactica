@@ -2,6 +2,7 @@
 using Client;
 using Content;
 using Helper;
+using Mechanics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,7 @@ namespace SceneManagement
         private GameObject _canvas;
         private Text _damageIndicator;
         private bool _dead;
-        private bool _editor = false;
+        public bool _editor = false;
         private GameObject _hudCanvas;
         private int _id;
         private Vector3 _mousePos;
@@ -50,7 +51,7 @@ namespace SceneManagement
                 {
                     //Player.Create(_id);
                 }
-
+                
                 HandleInput();
             }
         }
@@ -102,7 +103,7 @@ namespace SceneManagement
 
         private void InitializeFuelTypes() // Load Fuel types
         {
-            List<Fuel> fuelList = FuelManager.GetFuelTypes();
+            List<Fuel> fuelList = FuelInitializer.GetFuelTypes();
 
             if (DebugMode)
             {
@@ -129,12 +130,16 @@ namespace SceneManagement
             }
         }
 
-        private void ToggleEditorMode()
+        public void ToggleEditorMode()
         {
-            _editor = !_editor;
+            _editor = !_editor;   
             _canvas?.SetActive(_editor);
             Time.timeScale = _editor ? 0 : 1;
-
+            foreach (var block in _playerShipContainer.Blocks)
+            {
+                var attachPointManager = block.GetComponent<AttachPointManager>(); // Adjusted to get AttachPointManager from block
+                attachPointManager.ToggleColliders(_editor);
+            }
             if (DebugMode)
             {
                 Debug.Log("Editor state: " + _editor);

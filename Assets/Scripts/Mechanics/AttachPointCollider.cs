@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Mechanics
-{
-    public class AttachPointCollider : MonoBehaviour
-    {
+namespace Mechanics {
+    public class AttachPointCollider : MonoBehaviour {
         private BoxCollider2D _collider;
+        private bool _isActive = false; // New field to track activation state
 
         private void Start()
         {
@@ -16,8 +15,9 @@ namespace Mechanics
             if (!Input.GetMouseButtonDown(0))
                 return;
 
-            if (_collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            if (!_isActive && _collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition))) // Check if attach point is not already active
             {
+                _isActive = true;
                 _collider.enabled = false;
                 ConnectBlock();
             }

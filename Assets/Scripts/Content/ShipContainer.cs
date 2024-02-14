@@ -78,6 +78,11 @@ namespace Content
             InitializeShip();
         }
 
+        void Start()
+        {
+            rb = gameObject.AddComponent<Rigidbody2D>();
+        }
+
         /// <summary>
         /// Initializes the ship by calculating linear and angular acceleration. To be used when the ship is done being edited
         /// </summary>
@@ -88,7 +93,6 @@ namespace Content
                 if (Camera.main != null) Camera.main.transform.parent = this.transform;
                 if (ShipName == null) name = "myship"; //todo temp
             }
-            rb = new Rigidbody2D();
             CalculateMass();
             CalculateLinearAcceleration();
             CalculateAngularAcceleration();
@@ -130,8 +134,7 @@ namespace Content
         /// Updates the linear acceleration based on the player input.
         /// </summary>
         /// <param name="playerInput">The player input vector.</param>
-        private void
-            UpdateLinearAcceleration(Vector2 playerInput) //todo does this work?
+        private void UpdateLinearAcceleration(Vector2 playerInput) //todo does this work?
         {
             // Use the precalculated potential thrust contribution directly
             LinearAcceleration += PotentialThrustContribution * playerInput;
