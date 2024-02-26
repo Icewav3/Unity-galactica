@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1793989039098112764, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -68,9 +72,17 @@ PrefabInstance:
       propertyPath: bottomColliderActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4943956359542148530, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_Name
       value: Ion_Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614379223443372337, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

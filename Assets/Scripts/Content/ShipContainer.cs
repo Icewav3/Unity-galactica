@@ -14,6 +14,7 @@ namespace Content
     public class ShipContainer : MonoBehaviour
     {
         public Rigidbody2D rb;
+
         /// <summary>
         /// Represents the angular acceleration of an object.
         /// </summary>
@@ -71,16 +72,16 @@ namespace Content
         /// <summary>
         /// Represents a container object for a ship in a game.
         /// </summary>
-        public ShipContainer(string shipName, List<Block> blocks)
+        public ShipContainer(string shipName)
         {
             this.ShipName = shipName;
-            this.Blocks = blocks;
             InitializeShip();
         }
 
         void Start()
         {
             rb = gameObject.AddComponent<Rigidbody2D>();
+            InitializeShip();
         }
 
         /// <summary>
@@ -93,6 +94,9 @@ namespace Content
                 if (Camera.main != null) Camera.main.transform.parent = this.transform;
                 if (ShipName == null) name = "myship"; //todo temp
             }
+
+            GameObject core = Resources.Load<GameObject>("Prefabs/Core");
+            Core = Instantiate(core, this.transform, true);
             CalculateMass();
             CalculateLinearAcceleration();
             CalculateAngularAcceleration();
@@ -102,9 +106,12 @@ namespace Content
         /// Adds a block to the editor.
         /// </summary>
         /// <param name="block">The block to be added.</param>
-        public void AddBlock(Block block) //to be used in the editor
+        /// <param name="position">the position to place this block</param>
+        public void AddBlock(Block block, Vector2 position) //to be used in the editor
         {
-            Blocks.Add(block);
+            Block newBlock = Instantiate(block, position, Quaternion.identity);
+            newBlock.transform.SetParent(this.transform);
+            Blocks.Add(newBlock);
         }
 
         /// <summary>

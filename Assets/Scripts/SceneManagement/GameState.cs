@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Client;
 using Content;
 using Helper;
-using Mechanics;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SceneManagement
@@ -14,16 +13,18 @@ namespace SceneManagement
 
         public float Acceleration = 0.01f;
         public float TopSpeed = 3f;
+        public bool _editor = false;
+        public UnityEvent<bool> OnEditorModeChanged = new UnityEvent<bool>();
 
         private Camera _camera;
         private GameObject _canvas;
         private Text _damageIndicator;
         private bool _dead;
-        public bool _editor = false;
         private GameObject _hudCanvas;
         private int _id;
         private Vector3 _mousePos;
         private ShipContainer _playerShipContainer;
+
 
         public void Start()
         {
@@ -32,6 +33,12 @@ namespace SceneManagement
                 Debug.Log("starting Gamestate");
             }
 
+            if (_playerShipContainer == null)
+            {
+                _playerShipContainer = GameObject.Find("ShipContainer").GetComponent<ShipContainer>();
+            }
+
+            StateMachine.ShipContainer = _playerShipContainer;
             InitializeComponents();
             InitializeFuelTypes();
         }
@@ -51,7 +58,7 @@ namespace SceneManagement
                 {
                     //Player.Create(_id);
                 }
-                
+
                 HandleInput();
             }
         }
@@ -80,19 +87,6 @@ namespace SceneManagement
             {
                 Debug.Log("looking for canvas");
             }
-            
-            // Load the Canvas prefab from Resources folder and instantiate it under the `_canvas` GameObject
-            /*var canvasPrefab = Resources.Load("Prefabs/Canvas") as GameObject;
-            if (canvasPrefab != null)
-            {
-                _canvas = Instantiate(canvasPrefab, _canvas.transform, true);
-                _canvas.SetActive(false);
-            }
-            else
-            {
-                Debug.LogError(
-                    "Can't load 'Canvas' prefab from Resources Folder. Please make sure the prefab exists and is placed in Assets/Resources folder");
-            }*/
 
             Util.CheckForNull(playerObject, "Player");
             Util.CheckForNull(_camera, "Camera");
@@ -101,7 +95,10 @@ namespace SceneManagement
             InitializeClient();
         }
 
-        private void InitializeFuelTypes() // Load Fuel types
+        /// <summary>
+        /// Initializes the fuel types for the game.
+        /// </summary>
+        private void InitializeFuelTypes()
         {
             List<Fuel> fuelList = FuelInitializer.GetFuelTypes();
 
@@ -132,27 +129,21 @@ namespace SceneManagement
 
         public void ToggleEditorMode()
         {
-            _editor = !_editor;   
+            _editor = !_editor;
+            OnEditorModeChanged.Invoke(_editor);
             _canvas?.SetActive(_editor);
             Time.timeScale = _editor ? 0 : 1;
-            foreach (var block in _playerShipContainer.Blocks)
-            {
-                var attachPointManager = block.GetComponent<AttachPointManager>(); // Adjusted to get AttachPointManager from block
-                attachPointManager.ToggleColliders(_editor);
-            }
             if (DebugMode)
             {
                 Debug.Log("Editor state: " + _editor);
-                Debug.Log("Sim speed: "+Time.timeScale);
+                Debug.Log("Sim speed: " + Time.timeScale);
             }
         }
 
         private void HandleInput()
         {
-            // Handle player input here...
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //Debug.Log(Player.Menu());
             }
 
             if (Input.GetKey(KeyCode.W))

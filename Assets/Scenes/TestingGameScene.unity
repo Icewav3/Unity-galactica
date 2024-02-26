@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipName: 
-  shipContainer: {fileID: 0}
-  canvas: {fileID: 0}
+  shipContainer: {fileID: 203237165}
+  canvas: {fileID: 1627028933}
 --- !u!4 &95041958
 Transform:
   m_ObjectHideFlags: 0
@@ -183,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 203237166}
   - component: {fileID: 203237167}
+  - component: {fileID: 203237168}
   m_Layer: 0
   m_Name: ShipContainer
   m_TagString: Untagged
@@ -217,16 +218,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f29d4c457c84956a45dd80381aff577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 203237168}
   AngularAcceleration: 0
   AngularVelocity: {x: 0, y: 0}
   Blocks: []
   Core: {fileID: 0}
-  IsPlayer: 0
+  IsPlayer: 1
   LinearAcceleration: {x: 0, y: 0}
   Mass: 0
   PotentialThrustContribution: {x: 0, y: 0}
   ShipName: 
+--- !u!50 &203237168
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203237165}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!224 &769561559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7951680247891156707, guid: 74c4db5563b3392419f390362a0a88b5, type: 3}
@@ -284,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6661387138853518494, guid: 7e411500fc1e62d428a3880217f2080b, type: 3}
+      propertyPath: _playerShipContainer
+      value: 
+      objectReference: {fileID: 203237167}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -426,6 +458,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!223 &1627028933 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7488185038769598623, guid: 74c4db5563b3392419f390362a0a88b5, type: 3}
+  m_PrefabInstance: {fileID: 3849474252781758422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2078163340
 GameObject:
   m_ObjectHideFlags: 0
