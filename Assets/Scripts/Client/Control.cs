@@ -1,8 +1,10 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using Client;
 using Content;
 using Content.Blocks.MovementBlocks;
+using Mechanics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Control : MonoBehaviour
 {
@@ -11,15 +13,20 @@ public class Control : MonoBehaviour
     public float topSpeed = 3;
     private Camera _camera;
     private GameObject _canvas;
+    private Text _damageIndicator;
+    private bool _damageState = false;
     private bool _dead;
     private bool _editor;
+
+    private GameObject _hudCanvas;
+
     private int _id;
     private Vector3 _mousePos;
     private Rigidbody2D _player;
 
 
     /// <summary>
-    /// /Attach this to the parent node of the player, Camera, and Canvas, it manages movement and menu positioning
+    /// Attach this to the parent node of the player, Camera, and Canvas, it manages movement and menu positioning
     /// </summary>
     void Start()
     {
@@ -30,19 +37,21 @@ public class Control : MonoBehaviour
         thrusterBlock.mass = 10f;
         var blocks = new List<Block>();
         blocks.Add(thrusterBlock);
-        var testContainer = new ShipContainer("test", new GameObject(), blocks);
-        Debug.Log($"Ship Name: {testContainer.shipName}");
-        testContainer.UpdateShip(new Vector2(1,1), (1f));
-        Debug.Log("testcontainer mass: " + testContainer.mass);
-        Debug.Log("testcontainer name: " + testContainer.blocks);
-        foreach (var VARIABLE in blocks)
+        var testContainer = new ShipContainer("test", blocks);
+        testContainer.InitalizeShip();
+        Debug.Log($"Ship Name: {testContainer.ShipName}");
+        testContainer.UpdateShip(new Vector2(1, 1), (1f));
+        Debug.Log("testcontainer mass: " + testContainer.Mass);
+        Debug.Log("testcontainer name: " + testContainer.Blocks);
+        foreach (var variable in blocks)
         {
-            Debug.Log("block type: " + VARIABLE.GetType());
+            Debug.Log("block type: " + variable.GetType());
         }
-        print("Linear acceleration: "+testContainer.linearAcceleration);
-        print("Angular acceleration: "+testContainer.angularAcceleration);
-        //END TEST CODE
 
+        print("Linear acceleration: " + testContainer.LinearAcceleration);
+        print("Angular acceleration: " + testContainer.AngularAcceleration);
+        print("thrust:" + testContainer.PotentialThrustContribution);
+        //END TEST CODE
 
         //Load Fuel types
         List<Fuel> fuelList = FuelManager.GetFuelTypes();
@@ -61,10 +70,30 @@ public class Control : MonoBehaviour
         _player = GetComponentInChildren<Rigidbody2D>();
         _camera = GetComponentInChildren<Camera>();
         _canvas = gameObject.transform.Find("Canvas").gameObject;
+        _hudCanvas =
+            new GameObject(
+                "HUDCanvas"); // Instantiate a new GameObject for HUD Canvas
+        _hudCanvas
+            .AddComponent<
+                Canvas>(); // Attach a Canvas component to the HUDCanvas GameObject.
+        _hudCanvas
+            .AddComponent<CanvasScaler>(); // Attach a Canvas Scaler component
+        _hudCanvas
+            .AddComponent<
+                GraphicRaycaster>(); // Attach a Raycaster component for UI interaction
+
+        _damageIndicator = new GameObject("DamageIndicator").AddComponent<Text>();
+        // Set the _damageIndicator parent to _hudCanvas
+        _damageIndicator.transform.SetParent(_hudCanvas.transform); 
+        _damageIndicator.text = "damage";
+        _damageIndicator.enabled = true;
+
         //Check for nulls
         Helper.Util.CheckForNull(_player, "Player");
         Helper.Util.CheckForNull(_camera, "Camera");
         Helper.Util.CheckForNull(_canvas, "Canvas");
+        Helper.Util.CheckForNull(_hudCanvas, "HudCanvas");
+
         //Client initialization
         _dead = true;
         _id = Time.frameCount;
@@ -73,9 +102,35 @@ public class Control : MonoBehaviour
 
     void Update()
     {
+        //Start TEST CODE
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _damageState = !_damageState;
+            _damageIndicator.enabled = _damageState;
+        }
+
+        if (_damageState && Input.GetMouseButtonDown(0))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            if (hit.collider != null)
+            {
+                HealthManager health =
+                    hit.collider.gameObject.GetComponent<HealthManager>();
+                if (health != null)
+                    health.TakeDamage(50f);
+            }
+        }
+
+        if (_damageState)
+            _damageIndicator.transform.position =
+                Input.mousePosition + new Vector3(10, 10, 0);
+        //END TEST CODE
         //Build mode
         bool tab = Input.GetKeyDown(KeyCode.Tab);
-        _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition); //gets real mouse position
+        _mousePos =
+            _camera.ScreenToWorldPoint(Input
+                .mousePosition); //gets real mouse position
 
         if (debug)
         {
@@ -114,7 +169,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(_player.velocity.x, topSpeed);
+                    _player.velocity =
+                        new Vector2(_player.velocity.x, topSpeed);
                 }
 
                 if (debug)
@@ -131,7 +187,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(_player.velocity.x, -topSpeed);
+                    _player.velocity =
+                        new Vector2(_player.velocity.x, -topSpeed);
                 }
 
                 if (debug)
@@ -148,7 +205,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(-topSpeed, _player.velocity.y);
+                    _player.velocity =
+                        new Vector2(-topSpeed, _player.velocity.y);
                 }
 
                 if (debug)
@@ -165,7 +223,8 @@ public class Control : MonoBehaviour
                 }
                 else
                 {
-                    _player.velocity = new Vector2(topSpeed, _player.velocity.y);
+                    _player.velocity =
+                        new Vector2(topSpeed, _player.velocity.y);
                 }
 
                 if (debug)
@@ -175,4 +234,4 @@ public class Control : MonoBehaviour
             }
         }
     }
-}
+}*/

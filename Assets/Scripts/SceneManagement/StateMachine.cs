@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Content;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -6,88 +8,58 @@ namespace SceneManagement
 {
     public class StateMachine : MonoBehaviour
     {
-        public static readonly bool
-            DebugMode = true;
-
-        private BaseState _currentState;
-
-        // Properties with private setters
+        public static readonly bool DebugMode = true;
+        private String _currentState;
         public EventSystem EventSystem { get; private set; }
-
         public AudioListener AudioListener { get; private set; }
-
-        //public string CurrentScene { get; private set; }
         public static StateMachine Instance { get; private set; }
 
+        public static ShipContainer ShipContainer { get; set; } //set in gamestate
 
         private void Awake()
         {
+            //singleton pattern
             if (Instance != null && Instance != this)
             {
-                if (Instance.gameObject.scene.buildIndex !=
-                    gameObject.scene.buildIndex)
+                if (Instance.gameObject.scene.buildIndex != gameObject.scene.buildIndex)
                 {
-                    //Destroy(this.gameObject);
+                    Destroy(this.gameObject);
                 }
             }
             else
             {
                 Instance = this;
-                DontDestroyOnLoad(this
-                    .gameObject); // Don't destroy the StateMachine when loading a new scene
-
+                DontDestroyOnLoad(this.gameObject);
                 InitializeEventSystem();
-                Debug.Log(Instance.EventSystem);
-                DontDestroyOnLoad(this.EventSystem);
-                // InitializeAudioListener();
-                // Debug.Log(Instance.AudioListener);
-                // DontDestroyOnLoad(this.AudioListener);
             }
         }
 
         private void Start()
         {
-            if (DebugMode)
+            if (_currentState == null)
             {
-                Debug.Log("Started in scene: " +
-                          SceneManager.GetActiveScene().name);
+                _currentState = SceneManager.GetActiveScene().name;
             }
 
-            //TransitionTo("Game");
             if (DebugMode)
             {
-                Debug.Log("Booted to scene: " +
-                          SceneManager.GetActiveScene().name);
+                Debug.Log("Started in scene: " + SceneManager.GetActiveScene().name);
             }
         }
 
-        private void Update()
+        public static void TransitionTo(string sceneName) //somehow ended up w/a duplicate here
         {
-            UpdateState();
-        }
-
-        public static void TransitionTo(string sceneName)
-        {
-            //Instance.CurrentScene = SceneManager.GetActiveScene().name;
-            //Debug.Log(Instance.CurrentScene);
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            Instance.InitializeEventSystem();
-            Instance.InitializeAudioListener();
-            UpdateState();
+            StateMachine.Instance
+                .InitializeEventSystem(); //Access this specific insatnce of the state machine to make it work with static
         }
 
-        private static void UpdateState()
-        {
-            Instance._currentState
-                ?.Update(); // Null check before updating state
-        }
-
-        private void InitializeEventSystem()
+        private void
+            InitializeEventSystem() // this is an example of me trying to make my code more robust - checking and instancing event system if it doesnt exist could prevent game breaking bugs if something happened during scene initalization
         {
             EventSystem[] allEventSystems = FindObjectsOfType<EventSystem>();
 
-            foreach (var es in
-                     allEventSystems) // Destroy all EventSystems except ours
+            foreach (var es in allEventSystems)
             {
                 if (es != EventSystem)
                 {
@@ -95,7 +67,7 @@ namespace SceneManagement
                 }
             }
 
-            if (EventSystem == null) // If there is no EventSystem, create one
+            if (EventSystem == null)
             {
                 GameObject eventSystemObject = new GameObject("EventSystem");
                 EventSystem = eventSystemObject.AddComponent<EventSystem>();
@@ -110,10 +82,8 @@ namespace SceneManagement
 
             if (AudioListener == null)
             {
-                GameObject audioListenerObject =
-                    new GameObject("AudioListener");
-                AudioListener =
-                    audioListenerObject.AddComponent<AudioListener>();
+                GameObject audioListenerObject = new GameObject("AudioListener");
+                AudioListener = audioListenerObject.AddComponent<AudioListener>();
                 DontDestroyOnLoad(audioListenerObject);
             }
         }

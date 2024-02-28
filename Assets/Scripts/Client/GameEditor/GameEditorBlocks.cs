@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+//deprecated
 public class GameEditorBlocks
 {
     public GameObject PrefabFinder(GameObject blockSprite)
