@@ -38,7 +38,7 @@ namespace Mechanics
             {
                 // If the AttachPointCollider is not active, don't connect any blocks
                 return;
-            }
+            }   
 
             if (!EditorBlockButton.CurrentInstantiatedPrefab.TryGetComponent<Block>(out Block blockToAdd))
             {

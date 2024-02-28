@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Content
 {
+    //TODO IMPLEMENT SRP & SPLIT INTO RIGIDBODYCONTAINER AND OTHER NEEDED CLASSES?
+    //don't even need a dictionary of colliders. the Collision paramter for OnCollisionEnter literally has *both* colliders involved in the collision. just get the collider from this object and pass the message along or just call a method on one of its components
+    //TODO https://discord.com/channels/489222168727519232/763495187787677697/1212488440566911007
     /// <summary>
     /// Represents a container for a ship in the game.
     /// </summary>
@@ -131,6 +134,7 @@ namespace Content
         /// </summary>
         private void CalculateMass()
         {
+            Mass = 0;
             foreach (Block block in Blocks)
             {
                 Mass += block.mass;
