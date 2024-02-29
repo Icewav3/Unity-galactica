@@ -23,7 +23,7 @@ namespace SceneManagement
         private GameObject _hudCanvas;
         private int _id;
         private Vector3 _mousePos;
-        private ShipContainer _playerShipContainer;
+        public ShipContainer _playerShipContainer;
 
 
         public void Start()
@@ -32,10 +32,13 @@ namespace SceneManagement
             {
                 Debug.Log("starting Gamestate");
             }
-
+            
+            _playerShipContainer = GameObject.Find("ShipContainer").GetComponent<ShipContainer>();
+            
             if (_playerShipContainer == null)
             {
-                _playerShipContainer = GameObject.Find("ShipContainer").GetComponent<ShipContainer>();
+                Debug.LogError("ShipContainer GameObject is missing in the scene or not assigned");
+                return;
             }
 
             StateMachine.ShipContainer = _playerShipContainer;

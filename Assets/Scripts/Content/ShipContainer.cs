@@ -83,7 +83,11 @@ namespace Content
 
         void Start()
         {
-            rb = gameObject.AddComponent<Rigidbody2D>();
+            rb = gameObject.GetComponent<Rigidbody2D>();
+            if(rb == null)
+            {
+                Debug.LogError("Rigidbody2D not found on ship");
+            }
             InitializeShip();
         }
 
