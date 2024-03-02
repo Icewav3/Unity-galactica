@@ -2,29 +2,20 @@
 using Content;
 using Helper;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 namespace SceneManagement
 {
     public class GameState : MonoBehaviour
     {
         public bool DebugMode = true;
-
         public float Acceleration = 0.01f;
         public float TopSpeed = 3f;
-        public bool _editor = false;
-        public UnityEvent<bool> OnEditorModeChanged = new UnityEvent<bool>();
-
+        public ShipContainer _playerShipContainer;
         private Camera _camera;
-        private GameObject _canvas;
-        private Text _damageIndicator;
         private bool _dead;
         private GameObject _hudCanvas;
         private int _id;
         private Vector3 _mousePos;
-        public ShipContainer _playerShipContainer;
-
 
         public void Start()
         {
@@ -32,9 +23,9 @@ namespace SceneManagement
             {
                 Debug.Log("starting Gamestate");
             }
-            
+
             _playerShipContainer = GameObject.Find("ShipContainer").GetComponent<ShipContainer>();
-            
+
             if (_playerShipContainer == null)
             {
                 Debug.LogError("ShipContainer GameObject is missing in the scene or not assigned");
@@ -48,22 +39,12 @@ namespace SceneManagement
 
         public void Update()
         {
-            bool tab = Input.GetKeyDown(KeyCode.Tab);
-            _mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-
-            if (tab) //this is a keybind
+            if (_dead)
             {
-                ToggleEditorMode();
+                //Player.Create(_id);
             }
-            else
-            {
-                if (_dead)
-                {
-                    //Player.Create(_id);
-                }
 
-                HandleInput();
-            }
+            HandleInput();
         }
 
         private void InitializeComponents()
@@ -75,25 +56,22 @@ namespace SceneManagement
 
             GameObject playerObject = GameObject.Find("Player");
             _camera = Util.FindOrCreateComponent<Camera>("Main Camera");
-            _canvas = GameObject.Find("Canvas");
 
             if (DebugMode)
             {
                 Debug.Log("setting parents");
             }
 
-            //  Set camera and canvas as children of player
+            // Set camera as a child of the player
             _camera.transform.parent = playerObject.transform;
-            _canvas.transform.parent = playerObject.transform;
 
             if (DebugMode)
             {
-                Debug.Log("looking for canvas");
+                Debug.Log("inspecting components");
             }
 
             Util.CheckForNull(playerObject, "Player");
             Util.CheckForNull(_camera, "Camera");
-            Util.CheckForNull(_canvas, "Canvas");
 
             InitializeClient();
         }
@@ -124,98 +102,66 @@ namespace SceneManagement
         private void InitializeClient()
         {
             _dead = true;
-            if (_canvas != null)
-            {
-                _canvas.SetActive(false);
-            }
-        }
-
-        public void ToggleEditorMode()
-        {
-            _editor = !_editor;
-            OnEditorModeChanged.Invoke(_editor);
-            _canvas?.SetActive(_editor);
-            Time.timeScale = _editor ? 0 : 1;
-            if (DebugMode)
-            {
-                Debug.Log("Editor state: " + _editor);
-                Debug.Log("Sim speed: " + Time.timeScale);
-            }
         }
 
         private void HandleInput()
         {
+            HandleShipMovement();
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                Application.Quit();
             }
+        }
 
+        private void HandleShipMovement()
+        {
+            var rb = _playerShipContainer.rb;
+            rb.velocity = CalculateNewVelocity(rb.velocity);
+        }
+
+        private Vector2 CalculateNewVelocity(Vector2 velocity)
+        {
             if (Input.GetKey(KeyCode.W))
             {
-                if (_playerShipContainer.rb.velocity.y < TopSpeed)
-                {
-                    _playerShipContainer.rb.velocity += new Vector2(0, Acceleration);
-                }
+                if (velocity.y < TopSpeed)
+                    velocity += new Vector2(0, Acceleration);
                 else
-                {
-                    _playerShipContainer.rb.velocity = new Vector2(_playerShipContainer.rb.velocity.x, TopSpeed);
-                }
-
+                    velocity = new Vector2(velocity.x, TopSpeed);
                 if (DebugMode)
-                {
                     Debug.Log("w");
-                }
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                if (_playerShipContainer.rb.velocity.y > -TopSpeed)
-                {
-                    _playerShipContainer.rb.velocity += new Vector2(0, -Acceleration);
-                }
+                if (velocity.y > -TopSpeed)
+                    velocity += new Vector2(0, -Acceleration);
                 else
-                {
-                    _playerShipContainer.rb.velocity = new Vector2(_playerShipContainer.rb.velocity.x, -TopSpeed);
-                }
-
+                    velocity = new Vector2(velocity.x, -TopSpeed);
                 if (DebugMode)
-                {
                     Debug.Log("s");
-                }
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                if (_playerShipContainer.rb.velocity.x > -TopSpeed)
-                {
-                    _playerShipContainer.rb.velocity += new Vector2(-Acceleration, 0);
-                }
+                if (velocity.x > -TopSpeed)
+                    velocity += new Vector2(-Acceleration, 0);
                 else
-                {
-                    _playerShipContainer.rb.velocity = new Vector2(-TopSpeed, _playerShipContainer.rb.velocity.y);
-                }
-
+                    velocity = new Vector2(-TopSpeed, velocity.y);
                 if (DebugMode)
-                {
                     Debug.Log("a");
-                }
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                if (_playerShipContainer.rb.velocity.x < TopSpeed)
-                {
-                    _playerShipContainer.rb.velocity += new Vector2(Acceleration, 0);
-                }
+                if (velocity.x < TopSpeed)
+                    velocity += new Vector2(Acceleration, 0);
                 else
-                {
-                    _playerShipContainer.rb.velocity = new Vector2(TopSpeed, _playerShipContainer.rb.velocity.y);
-                }
-
+                    velocity = new Vector2(TopSpeed, velocity.y);
                 if (DebugMode)
-                {
                     Debug.Log("d");
-                }
             }
+
+            return velocity;
         }
     }
 }

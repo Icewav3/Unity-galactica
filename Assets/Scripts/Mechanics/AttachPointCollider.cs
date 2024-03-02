@@ -1,6 +1,5 @@
 ﻿using Client.UI;
 using Content;
-using SceneManagement;
 using UnityEngine;
 
 namespace Mechanics
@@ -9,20 +8,20 @@ namespace Mechanics
     {
         public bool active = true;
         private BoxCollider2D _collider;
+        private EditorStateController _editorStateManager;
         private ShipContainer _shipContainer;
-        private GameState gameState;
 
         private void Start()
         {
             _collider = GetComponent<BoxCollider2D>();
             _shipContainer = transform.parent.GetComponentInParent<ShipContainer>();
-            gameState = GameObject.Find("GameState").GetComponent<GameState>();
-            gameState.OnEditorModeChanged.AddListener(OnEditorModeChanged);
+            _editorStateManager = GameObject.Find("ShipEditor").GetComponent<EditorStateController>();
+            _editorStateManager.onEditorModeChanged.AddListener(OnEditorModeChanged);
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && gameState._editor)
+            if (Input.GetMouseButtonDown(0) && active)
             {
                 if (_collider.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
                 {
@@ -38,9 +37,11 @@ namespace Mechanics
             {
                 // If the AttachPointCollider is not active, don't connect any blocks
                 return;
-            }   
+            }
 
-            if (!EditorBlockButton.CurrentInstantiatedPrefab.TryGetComponent<Block>(out Block blockToAdd))
+            if (!EditorBlockButton.CurrentInstantiatedPrefab
+                    .TryGetComponent<
+                        Block>(out Block blockToAdd)) //BUG if the currentinstanciatedprefab is destroyed via right click, this will throw an error
             {
                 Debug.LogError("No block component in the instantiated prefab. Check the prefab setup.");
                 return;

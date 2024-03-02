@@ -7,11 +7,18 @@ namespace Client.UI
     {
         public static GameObject CurrentInstantiatedPrefab;
         public GameObject InstantiatedPrefab;
+        private EditorStateController _editorStateController;
         private string _imageName;
         private Camera _mainCamera;
 
         private void Start()
         {
+            _editorStateController = FindObjectOfType<EditorStateController>();
+            if (_editorStateController)
+            {
+                _editorStateController.onEditorModeChanged.AddListener(OnEditorModeChanged);
+            }
+
             Image imageComponent = GetComponent<Image>();
             if (imageComponent != null && imageComponent.sprite != null)
             {
@@ -67,6 +74,15 @@ namespace Client.UI
         {
             // Destroy the instantiated prefab
             if (InstantiatedPrefab)
+            {
+                Destroy(InstantiatedPrefab);
+                InstantiatedPrefab = null;
+            }
+        }
+
+        private void OnEditorModeChanged(bool isEditorMode)
+        {
+            if (!isEditorMode && InstantiatedPrefab)
             {
                 Destroy(InstantiatedPrefab);
                 InstantiatedPrefab = null;
