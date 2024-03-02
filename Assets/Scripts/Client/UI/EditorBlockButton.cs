@@ -43,6 +43,12 @@ namespace Client.UI
         public void OnButtonClick()
         {
             Debug.Log("Pressed button for block: " + _imageName);
+            if (CurrentInstantiatedPrefab)
+            {
+                Destroy(CurrentInstantiatedPrefab);
+                CurrentInstantiatedPrefab = null;
+                Debug.Log("Destroyed the previous prefab");
+            }
 
             // Instantiate the prefab
             GameObject prefab = Resources.Load<GameObject>("Prefabs/" + _imageName);
