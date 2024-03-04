@@ -106,14 +106,14 @@ namespace SceneManagement
 
         private void HandleInput()
         {
-            HandleShipMovement();
+            // HandleShipMovement();
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Application.Quit();
             }
         }
 
-        private void HandleShipMovement()
+        /*private void HandleShipMovement()
         {
             var rb = _playerShipContainer.rb;
             rb.velocity = CalculateNewVelocity(rb.velocity);
@@ -162,6 +162,6 @@ namespace SceneManagement
             }
 
             return velocity;
-        }
+        }*/
     }
 }

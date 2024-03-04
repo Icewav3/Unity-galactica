@@ -15,19 +15,21 @@ public class EditorStateController : MonoBehaviour
         {
             Debug.LogWarning("EditorCanvas GameObject is missing in the scene or not assigned");
         }
+
+        UpdateEditorMode(); //if this is not done after the gameobject.find will not work
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            ToggleEditorMode();
+            _editor = !_editor;
+            UpdateEditorMode();
         }
     }
 
-    private void ToggleEditorMode()
+    private void UpdateEditorMode()
     {
-        _editor = !_editor;
         if (onEditorModeChanged != null)
         {
             onEditorModeChanged.Invoke(_editor); // Notify the listeners

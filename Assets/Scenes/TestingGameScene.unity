@@ -132,7 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 95041958}
-  - component: {fileID: 95041957}
+  - component: {fileID: 95041960}
+  - component: {fileID: 95041959}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,21 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &95041957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95041956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0115496d4de4a5396e6366b153621b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipName: 
-  shipContainer: {fileID: 203237165}
-  canvas: {fileID: 5946850400149706569}
 --- !u!4 &95041958
 Transform:
   m_ObjectHideFlags: 0
@@ -173,6 +159,80 @@ Transform:
   - {fileID: 1320039961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95041959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95041956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3eac958b83aa52d4d897feed1d480be9, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 95041960}
+        m_TargetAssemblyTypeName: Client.PlayerController, Assembly-CSharp
+        m_MethodName: DirectionalMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2c9ac7e4-1a27-48a2-9a77-e53f97e422fa
+    m_ActionName: GameControls/Directional[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 95041960}
+        m_TargetAssemblyTypeName: Client.PlayerController, Assembly-CSharp
+        m_MethodName: RotationalMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 09444923-8a98-4657-9bd5-82825b8ea5b3
+    m_ActionName: GameControls/Rotational[/Keyboard/e,/Keyboard/q]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: GameControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1406560159}
+--- !u!114 &95041960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95041956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24606f1e2eb4ae8abb1547918cbc3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &203237165
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,15 +378,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340699668059708303, guid: 7e411500fc1e62d428a3880217f2080b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0207791
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5340699668059708303, guid: 7e411500fc1e62d428a3880217f2080b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.43868196
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5340699668059708303, guid: 7e411500fc1e62d428a3880217f2080b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.011305023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5340699668059708303, guid: 7e411500fc1e62d428a3880217f2080b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -528,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 2078163340}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31296092, y: 0.03076682, z: -0.0043621385}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -903,7 +963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 394.19476}
+  m_AnchoredPosition: {x: 0, y: 395.85345}
   m_SizeDelta: {x: 173, y: 1604.7979}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &6217089356693680555
@@ -1132,7 +1192,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7983081310061512845}
   m_Direction: 3
   m_Value: 1
-  m_Size: 0.2456352
+  m_Size: 0.24666876
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
