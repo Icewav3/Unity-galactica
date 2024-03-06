@@ -8,15 +8,15 @@ namespace Mechanics
     {
         public bool active = true;
         private BoxCollider2D _collider;
-        private EditorStateController _editorStateManager;
+        private EditorStateController _editorStateController;
         private ShipContainer _shipContainer;
 
         private void Start()
         {
             _collider = GetComponent<BoxCollider2D>();
             _shipContainer = transform.parent.GetComponentInParent<ShipContainer>();
-            _editorStateManager = GameObject.Find("ShipEditor").GetComponent<EditorStateController>();
-            _editorStateManager.onEditorModeChanged.AddListener(OnEditorModeChanged);
+            _editorStateController = GameObject.Find("ShipEditor").GetComponent<EditorStateController>();
+            _editorStateController.onEditorModeChanged.AddListener(OnEditorModeChanged);
         }
 
         private void Update()

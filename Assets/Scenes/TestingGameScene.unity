@@ -216,6 +216,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 09444923-8a98-4657-9bd5-82825b8ea5b3
     m_ActionName: GameControls/Rotational[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c68e889c-c239-4121-86b8-1f3d0e2f57a5
+    m_ActionName: GameControls/ToggleEdit[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0cb47955-7f77-41dd-bf8b-1953051cf6a5
+    m_ActionName: GameControls/Back[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87228edc-d92d-4b3e-8bd3-f658aa1a23b0
+    m_ActionName: EditorControls/ToggleEdit[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GameControls
@@ -233,6 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24606f1e2eb4ae8abb1547918cbc3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 10
+  rotationSpeed: 100
 --- !u!1 &203237165
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,8 +315,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.01
+  m_AngularDrag: 0.01
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -325,6 +339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320039961}
   - component: {fileID: 1320039962}
+  - component: {fileID: 1320039963}
   m_Layer: 0
   m_Name: ShipEditor
   m_TagString: Untagged
@@ -364,6 +379,68 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   debugLogging: 0
+--- !u!114 &1320039963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320039960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3eac958b83aa52d4d897feed1d480be9, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2c9ac7e4-1a27-48a2-9a77-e53f97e422fa
+    m_ActionName: GameControls/Directional[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09444923-8a98-4657-9bd5-82825b8ea5b3
+    m_ActionName: GameControls/Rotational[/Keyboard/e,/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1320039962}
+        m_TargetAssemblyTypeName: EditorStateController, Assembly-CSharp
+        m_MethodName: ToggleEditorMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c68e889c-c239-4121-86b8-1f3d0e2f57a5
+    m_ActionName: GameControls/ToggleEdit[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0cb47955-7f77-41dd-bf8b-1953051cf6a5
+    m_ActionName: GameControls/Back[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87228edc-d92d-4b3e-8bd3-f658aa1a23b0
+    m_ActionName: EditorControls/ToggleEdit[/Keyboard/tab]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: GameControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 1406560159}
 --- !u!1001 &1379689420
 PrefabInstance:
   m_ObjectHideFlags: 0

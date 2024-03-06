@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class EditorStateController : MonoBehaviour
 {
@@ -19,13 +20,10 @@ public class EditorStateController : MonoBehaviour
         UpdateEditorMode(); //if this is not done after the gameobject.find will not work
     }
 
-    private void Update()
+    public void ToggleEditorMode(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            _editor = !_editor;
-            UpdateEditorMode();
-        }
+        _editor = !_editor;
+        UpdateEditorMode();
     }
 
     private void UpdateEditorMode()
