@@ -142,7 +142,7 @@ namespace Content
             Mass = 0;
             foreach (Block block in Blocks)
             {
-                Mass += block.blockConfig.mass;
+                Mass += block.mass;
             }
         }
 
