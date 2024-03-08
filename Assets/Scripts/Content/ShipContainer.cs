@@ -84,10 +84,11 @@ namespace Content
         void Start()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
-            if(rb == null)
+            if (rb == null)
             {
                 Debug.LogError("Rigidbody2D not found on ship");
             }
+
             InitializeShip();
         }
 
@@ -141,7 +142,7 @@ namespace Content
             Mass = 0;
             foreach (Block block in Blocks)
             {
-                Mass += block.mass;
+                Mass += block.blockConfig.mass;
             }
         }
 

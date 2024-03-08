@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Content\Blocks\MovementBlocks\ThrusterBlock.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\IState.cs" />
+    <Compile Include="Assets\Scripts\Content\Blocks\BlockConfig.cs"/>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Content\Block.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
