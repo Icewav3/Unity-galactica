@@ -47,7 +47,7 @@ namespace Mechanics
                 return;
             }
 
-            _shipContainer.AddBlock(blockToAdd, _collider.transform.position);
+            //temp _shipContainer.AddBlock(blockToAdd, _collider.transform.position);
             Debug.Log("Connected block at position: " + _collider.transform.position);
 
             this.enabled = false;

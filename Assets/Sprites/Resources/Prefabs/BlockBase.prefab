@@ -187,6 +187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftAttachPointCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7420448756797871312, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -248,6 +252,10 @@ PrefabInstance:
     - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_Name
       value: RightAttachPointCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7420448756797871312, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottomAttachPointCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7420448756797871312, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -372,6 +384,10 @@ PrefabInstance:
     - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_Name
       value: TopAttachPointCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031960014244640554, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7420448756797871312, guid: 8ce02bec0c3f98349ab1ea1113945e91, type: 3}
       propertyPath: m_LocalPosition.x

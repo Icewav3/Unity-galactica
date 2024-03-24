@@ -1,4 +1,4 @@
-using Client.GameEditor;
+/*using Client.GameEditor;
 using Content;
 using UnityEditor;
 using UnityEngine;
@@ -83,4 +83,4 @@ namespace Editor
             _blockScript.attachPoints = _blockCreator.attachPoints;
         }
     }
-}
+}*/

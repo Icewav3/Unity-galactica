@@ -30,7 +30,7 @@ namespace Content
 
         [SerializeField] public string blockRole = "Purpose of the block";
 
-        public List<Vector2> attachPoints;
+        public bool[] AttachPoints = new bool[4];
         
         /// <summary>
         /// Destroys the block object. If debug mode is enabled, it will log the block name to the console.
