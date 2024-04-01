@@ -106,30 +106,27 @@ namespace Content
         /// <param name="position">the position to place this block</param>
         public void AddBlock(GameObject prefabBlock, Vector2 indexPosition) //to be used in the editor
         {
+            //round to nearest int
             int x = (int)Mathf.Round(indexPosition.x);
             int y = (int)Mathf.Round(indexPosition.y);
-            if(x >= 0 && x < shipObject.Grid.GetLength(0) && y >= 0 && y < shipObject.Grid.GetLength(1))
-            {
-                if(shipObject.Grid[x, y] == null)
-                {
-                    GameObject newBlock = Instantiate(prefabBlock, this.transform, true);
-                    newBlock.transform.position = new Vector3(x, y, 0); // Snap to grid position
-                    shipObject.Grid[x, y] = newBlock.gameObject;
 
-                    // Print each GameObject in the Grid
-                    for (int i = 0; i < shipObject.Grid.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < shipObject.Grid.GetLength(1); j++)
-                        {
-                            GameObject obj = shipObject.Grid[i, j];
-                            if (obj != null)
-                            {
-                                Debug.Log("Object at [" + i + ", " + j + "]: " + obj.name);
-                            }
-                        }
-                    }
-                }
+            //get block type connections
+            var prefabBlockConnections = prefabBlock.GetComponent<Block>().AttachPoints;
+            GameObject newBlock = Instantiate(prefabBlock, this.transform, false);
+            // Snap to grid position
+            Vector3 newBlockTransform = new Vector3(x, y, 0);
+            newBlock.transform.position = newBlockTransform;
+            Debug.Log($"x = {x}, y = {y}");
+            bool added = shipObject.TryAddObject(newBlock, newBlockTransform, prefabBlockConnections);
+            if (!added)
+            {
+                Destroy(newBlock);
+                Debug.Log("Failed to attach");
             }
+
+            
+            // Print each GameObject in the Grid
+            Debug.Log(shipObject.DisplayGrid());
         }
 
         /// <summary>
