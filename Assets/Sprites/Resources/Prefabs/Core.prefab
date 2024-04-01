@@ -171,10 +171,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1303217522358826159, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4448391480543364157}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6810350441902005217}
   m_SourcePrefab: {fileID: 100100000, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
 --- !u!4 &2940851315964798764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1303217522358826159, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
   m_PrefabInstance: {fileID: 4235061359585350531}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7713071932352855582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+  m_PrefabInstance: {fileID: 4235061359585350531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6810350441902005217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713071932352855582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0920004f15649d59f07c442e96b4385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  mass: 100
+  cost: 100
+  value: 1
+  blockName: Placeholder Name
+  blockDescription: If you see this, this prefab is missing a description
+  blockRole: Purpose of the block
+  AttachPoints: 01010101

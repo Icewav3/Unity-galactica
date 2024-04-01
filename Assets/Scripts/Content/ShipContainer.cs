@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Content.Blocks.MovementBlocks;
+using Mechanics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Content
 {
-    //TODO IMPLEMENT SRP & SPLIT INTO RIGIDBODYCONTAINER AND OTHER NEEDED CLASSES?
-    //don't even need a dictionary of colliders. the Collision paramter for OnCollisionEnter literally has *both* colliders involved in the collision. just get the collider from this object and pass the message along or just call a method on one of its components
-    //TODO https://discord.com/channels/489222168727519232/763495187787677697/1212488440566911007
     /// <summary>
     /// Represents a container for a ship in the game.
     /// </summary>
@@ -31,7 +30,7 @@ namespace Content
         /// <summary>
         /// List of block objects.
         /// </summary>
-        public List<Block> Blocks;
+        public ShipGameObjectGrid shipObject = null;
 
         /// <summary>
         /// The core GameObject in the scene.
@@ -78,7 +77,6 @@ namespace Content
         public ShipContainer(string shipName)
         {
             this.ShipName = shipName;
-            InitializeShip();
         }
 
         void Start()
@@ -89,25 +87,16 @@ namespace Content
                 Debug.LogError("Rigidbody2D not found on ship");
             }
 
-            InitializeShip();
-        }
-
-        /// <summary>
-        /// Initializes the ship by calculating linear and angular acceleration. To be used when the ship is done being edited
-        /// </summary>
-        public void InitializeShip()
-        {
             if (IsPlayer)
             {
                 if (Camera.main != null) Camera.main.transform.parent = this.transform;
-                if (ShipName == null) name = "myship"; //todo temp
             }
-
             GameObject core = Resources.Load<GameObject>("Prefabs/Core");
             Core = Instantiate(core, this.transform, true);
-            CalculateMass();
-            CalculateLinearAcceleration();
-            CalculateAngularAcceleration();
+            shipObject = new ShipGameObjectGrid("myship", 5, Core);
+            //CalculateMass();
+            //CalculateLinearAcceleration();
+            //CalculateAngularAcceleration();
         }
 
         /// <summary>
@@ -115,11 +104,29 @@ namespace Content
         /// </summary>
         /// <param name="block">The block to be added.</param>
         /// <param name="position">the position to place this block</param>
-        public void AddBlock(Block block, Vector2 position) //to be used in the editor
+        public void AddBlock(GameObject prefabBlock, Vector2 indexPosition) //to be used in the editor
         {
-            Block newBlock = Instantiate(block, position, Quaternion.identity);
-            newBlock.transform.SetParent(this.transform);
-            Blocks.Add(newBlock);
+            //round to nearest int
+            int x = (int)Mathf.Round(indexPosition.x);
+            int y = (int)Mathf.Round(indexPosition.y);
+
+            //get block type connections
+            var prefabBlockConnections = prefabBlock.GetComponent<Block>().AttachPoints;
+            GameObject newBlock = Instantiate(prefabBlock, this.transform, false);
+            // Snap to grid position
+            Vector3 newBlockTransform = new Vector3(x, y, 0);
+            newBlock.transform.position = newBlockTransform;
+            Debug.Log($"x = {x}, y = {y}");
+            bool added = shipObject.TryAddObject(newBlock, newBlockTransform, prefabBlockConnections);
+            if (!added)
+            {
+                Destroy(newBlock);
+                Debug.Log("Failed to attach");
+            }
+
+            
+            // Print each GameObject in the Grid
+            Debug.Log(shipObject.DisplayGrid());
         }
 
         /// <summary>
@@ -140,9 +147,16 @@ namespace Content
         private void CalculateMass()
         {
             Mass = 0;
-            foreach (Block block in Blocks)
+            for (int i = 0; i < shipObject.Grid.GetLength(0); i++)
             {
-                Mass += block.mass;
+                for (int j = 0; j < shipObject.Grid.GetLength(1); j++)
+                {
+                    var block = shipObject.Grid[i, j].GetComponent<Block>();
+                    if (block != null)
+                    {
+                        Mass += block.mass;
+                    }
+                }
             }
         }
 
@@ -166,12 +180,16 @@ namespace Content
         /// /
         private void UpdateAngularAcceleration(float playerInput)
         {
-            foreach (Block block in Blocks)
+            for (int i = 0; i < shipObject.Grid.GetLength(0); i++)
             {
-                if (block.GetType() == typeof(GyroscopeBlock))
+                for (int j = 0; j < shipObject.Grid.GetLength(1); j++)
                 {
-                    AngularAcceleration +=
-                        playerInput * AngularAcceleration / Mass;
+                    var block = shipObject.Grid[i, j].GetComponent<GyroscopeBlock>();
+                    if (block != null)
+                    {
+                        AngularAcceleration +=
+                            playerInput * AngularAcceleration / Mass;
+                    }
                 }
             }
         }
@@ -181,22 +199,22 @@ namespace Content
         /// </summary>
         private void CalculateLinearAcceleration()
         {
-            foreach (Block block in Blocks)
+            for (int i = 0; i < shipObject.Grid.GetLength(0); i++)
             {
-                if (block.GetType() == typeof(ThrusterBlock))
+                for (int j = 0; j < shipObject.Grid.GetLength(1); j++)
                 {
-                    ThrusterBlock thrusterBlock = (ThrusterBlock)block;
+                    var block = shipObject.Grid[i, j].GetComponent<ThrusterBlock>();
+                    if (block != null)
+                    {
+                        // Calculate thrust contribution based on the block's thrust direction
+                        Vector2 thrustDirection = block.transform
+                            .up; // Assuming the thruster's forward direction is its "thrust" direction
+                        Vector2 thrustContribution = thrustDirection *
+                            block.thrustPower / Mass;
 
-                    // Calculate thrust contribution based on the block's thrust direction
-                    Vector2
-                        thrustDirection =
-                            thrusterBlock.transform
-                                .up; // Assuming the thruster's forward direction is its "thrust" direction
-                    Vector2 thrustContribution = thrustDirection *
-                        thrusterBlock.thrustPower / Mass;
-
-                    // Accumulate potential thrust contributions
-                    PotentialThrustContribution += thrustContribution;
+                        // Accumulate potential thrust contributions
+                        PotentialThrustContribution += thrustContribution;
+                    }
                 }
             }
         }
@@ -207,12 +225,15 @@ namespace Content
         /// </summary>
         private void CalculateAngularAcceleration()
         {
-            foreach (Block block in Blocks)
+            for (int i = 0; i < shipObject.Grid.GetLength(0); i++)
             {
-                if (block.GetType() == typeof(GyroscopeBlock))
+                for (int j = 0; j < shipObject.Grid.GetLength(1); j++)
                 {
-                    AngularAcceleration +=
-                        ((GyroscopeBlock)block).rotationPower;
+                    var block = shipObject.Grid[i, j].GetComponent<GyroscopeBlock>();
+                    if (block != null)
+                    {
+                        AngularAcceleration += block.rotationPower;
+                    }
                 }
             }
         }
