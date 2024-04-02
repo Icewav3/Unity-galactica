@@ -35,24 +35,35 @@ namespace Mechanics
                 throw new ArgumentException("Directions array must have length 4.");
             //change from world position to array position
             int x = Size/2 + (int)position.x;
-            int y = Size/2 - (int)position.y;
-
-            for (int i = 0; i < 4; i++)
+            int y = Size/2 - (int)position.y; //Y value is reversed in 2d arrays
+            if (IsInside(x, y) && !_grid[y,x])
             {
-                // Calculate checks for neighbors
-                int checkX = x + (i == 2 ? 1 : (i == 0 ? -1 : 0));
-                int checkY = y + (i == 1 ? 1 : (i == 3 ? -1 : 0));
-
-                if (IsInside(checkX, checkY)
-                    && _grid[checkY, checkX] is { } neighbor
-                    && neighbor.TryGetComponent<Block>(out Block neighborBlock)
-                    && attachPoints[i]
-                    && neighborBlock.AttachPoints[(i + 2) % 4])
+                for (var i = 0; i < 4; i++)
                 {
-                    Grid[y, x] = gameObject;
-                    return true;
+                    if(!attachPoints[i]) //if there is no connection possibility, then skip
+                    {
+                        continue;
+                    }
+                    // Calculate checks for neighbors
+                    int checkX = x + (i == 1 ? 1 : (i == 3 ? -1 : 0));
+                    int checkY = y - (i == 0 ? 1 : (i == 2 ? -1 : 0)); //Y value is reversed in 2d arrays
+
+                    if (!IsInside(checkX, checkY)) //if outside grid, then skip
+                    {
+                        continue;                  
+                    }
+                    GameObject neighbor = _grid[checkY, checkX];
+                    if (!neighbor) // if nothing beside, then skip
+                    {
+                        continue;
+                    }
+                    neighbor.TryGetComponent<Block>(out Block neighborBlock);
+                    if (neighborBlock.AttachPoints[(i + 2) % 4])
+                    {
+                        Grid[y, x] = gameObject;
+                        return true;
+                    }
                 }
-                
             }
             return false;
         }

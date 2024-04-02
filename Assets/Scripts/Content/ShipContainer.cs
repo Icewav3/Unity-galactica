@@ -124,9 +124,12 @@ namespace Content
                 Debug.Log("Failed to attach");
             }
 
-            
-            // Print each GameObject in the Grid
-            Debug.Log(shipObject.DisplayGrid());
+            else
+            {
+                Debug.Log("attached successfully");
+            }
+
+            // Debug.Log(shipObject.DisplayGrid());
         }
 
         /// <summary>
