@@ -93,7 +93,7 @@ namespace Content
             }
             GameObject core = Resources.Load<GameObject>("Prefabs/Core");
             Core = Instantiate(core, this.transform, true);
-            shipObject = new ShipGameObjectGrid("myship", 5, Core);
+            shipObject = new ShipGameObjectGrid("myship", 15, Core);
             //CalculateMass();
             //CalculateLinearAcceleration();
             //CalculateAngularAcceleration();
@@ -129,7 +129,7 @@ namespace Content
                 Debug.Log("attached successfully");
             }
 
-            // Debug.Log(shipObject.DisplayGrid());
+            Debug.Log(shipObject.DisplayGrid());
         }
 
         /// <summary>
