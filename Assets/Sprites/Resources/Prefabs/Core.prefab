@@ -174,7 +174,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6810350441902005217}
+      addedObject: {fileID: 7602623256137615228}
   m_SourcePrefab: {fileID: 100100000, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
 --- !u!4 &2940851315964798764 stripped
 Transform:
@@ -186,7 +186,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
   m_PrefabInstance: {fileID: 4235061359585350531}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6810350441902005217
+--- !u!114 &7602623256137615228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,4 +205,4 @@ MonoBehaviour:
   blockName: Placeholder Name
   blockDescription: If you see this, this prefab is missing a description
   blockRole: Purpose of the block
-  AttachPoints: 01010101
+  AttachPoints: 00000000

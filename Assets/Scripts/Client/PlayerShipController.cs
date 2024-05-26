@@ -1,6 +1,8 @@
 ﻿using Content;
+using Content.Blocks.MovementBlocks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 namespace Client
 {
@@ -12,7 +14,7 @@ namespace Client
         private EditorStateController _editorStateController;
         private Rigidbody2D _playerRigidbody;
         private ShipContainer _playerShipContainer;
-
+        private List<ThrusterBlock> _thrusters;
 
         private void Awake()
         {
@@ -32,26 +34,39 @@ namespace Client
 
         private void OnEditorModeChanged(bool inEditorMode)
         {
-            if (inEditorMode)
+            if (!inEditorMode)
             {
-                print(_playerShipContainer
-                    .ShipName); //TODO change to using addforce and just have shipcontainer update mass and let physics engine do its magic this will be done indepenantly for each block in it's own monobehavoir and called via events
+                _thrusters = new List<ThrusterBlock>(_playerShipContainer.GetComponentsInChildren<ThrusterBlock>());
+                print(_thrusters.Count); //succesfully locates thruster
+                foreach (var thruster in _thrusters)
+                {
+                    Debug.Log("Thruster Type: " + thruster.type); // Log each thruster type
+                }
             }
         }
 
         public void DirectionalMovement(InputAction.CallbackContext context)
         {
             Vector2 movementInput = context.ReadValue<Vector2>();
-            Debug.Log(movementInput);
-            _playerRigidbody.AddForce(movementInput * speedMult);
-            //_playerRigidbody.velocity = movementInput;
+
+            foreach (var thruster in _thrusters)
+            {
+                if (thruster.type == ThrusterType.Fixed)
+                {
+                    _playerRigidbody.AddForce(thruster.direction * thruster.thrustPower * movementInput.y * speedMult);
+                }
+                else if (thruster.type == ThrusterType.Omni)
+                {
+                    _playerRigidbody.AddForce(movementInput * thruster.thrustPower * speedMult);
+                    print("k"); //doesnt seem to execute
+                }
+            }
         }
 
         public void RotationalMovement(InputAction.CallbackContext context)
         {
             float rotationInput = context.ReadValue<float>();
-            Debug.Log(rotationInput);
-            //transform.Rotate(Vector3.forward, rotationInput);
+            _playerRigidbody.AddTorque(rotationInput * rotationSpeed);
         }
     }
 }

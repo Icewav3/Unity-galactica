@@ -68,6 +68,6 @@ namespace Content
     {
         Fixed,
         Gimballed,
-        OmniDirectional
+        Omni
     }
 }
