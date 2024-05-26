@@ -7,6 +7,7 @@ namespace Client
     public class PlayerShipController : MonoBehaviour
     {
         public float maxSpeed = 10f;
+        public float speedMult = 100f;
         public float rotationSpeed = 100f;
         private EditorStateController _editorStateController;
         private Rigidbody2D _playerRigidbody;
@@ -42,6 +43,7 @@ namespace Client
         {
             Vector2 movementInput = context.ReadValue<Vector2>();
             Debug.Log(movementInput);
+            _playerRigidbody.AddForce(movementInput * speedMult);
             //_playerRigidbody.velocity = movementInput;
         }
 
