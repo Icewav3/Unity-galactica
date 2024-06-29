@@ -42,7 +42,7 @@ namespace Client
         {
             Vector2 movementInput = context.ReadValue<Vector2>();
             Debug.Log(movementInput);
-            //_playerRigidbody.velocity = movementInput;
+            ApplyForce(movementInput);
         }
 
         public void RotationalMovement(InputAction.CallbackContext context)
@@ -50,6 +50,11 @@ namespace Client
             float rotationInput = context.ReadValue<float>();
             Debug.Log(rotationInput);
             //transform.Rotate(Vector3.forward, rotationInput);
+        }
+        private void ApplyForce(Vector2 direction)
+        {
+            Vector2 force = direction * 1;
+            _playerRigidbody.AddForce(force);
         }
     }
 }

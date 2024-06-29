@@ -130,6 +130,10 @@ namespace Content
             }
 
             Debug.Log(shipObject.DisplayGrid());
+            //update to reflect new values
+            CalculateMass();
+            CalculateLinearAcceleration();
+            CalculateAngularAcceleration();
         }
 
         /// <summary>

@@ -50,7 +50,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Content\Fuel.cs" />
     <Compile Include="Assets\Scripts\Content\Blocks\FuelTankBlock.cs" />
-    <Compile Include="Assets\Scripts\Projectiles\Projectiles.cs" />
     <Compile Include="Assets\Scripts\Client\GameEditor\GameEditorBlocks.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\BaseState.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Assets\Scripts\Content\Blocks\MovementBlocks\ThrusterBlock.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\IState.cs" />
+    <Compile Include="Assets\Scripts\Mechanics\ProjectileHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Content\Block.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
