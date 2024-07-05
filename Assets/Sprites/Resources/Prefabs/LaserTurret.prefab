@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: aimType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2647923894595809741, guid: 3930a7f415c63c842bd5620dd48bbf75, type: 3}
+      propertyPath: rotationSpeed
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 5880230403032573081, guid: 3930a7f415c63c842bd5620dd48bbf75, type: 3}
       propertyPath: m_Name
       value: LaserTurret
