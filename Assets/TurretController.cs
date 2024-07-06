@@ -7,6 +7,13 @@ public class TurretController : MonoBehaviour
 {
     private WeaponBlock weaponBlock;
     private float rotationSpeed;
+    private LineRenderer lineRenderer;
+
+    public LayerMask collisionMask; // Set this in the Inspector to specify what layers the laser should collide with
+    public Gradient laserColorGradient; // Assign a gradient in the Inspector to create a color pulsating effect
+    public float pulseSpeed = 2f; // Speed of the pulsating effect
+    public float maxLaserWidth = 0.5f; // Maximum width of the laser
+    public float minLaserWidth = 0.1f; // Minimum width of the laser
 
     private void Start()
     {
@@ -21,6 +28,20 @@ public class TurretController : MonoBehaviour
         {
             rotationSpeed = weaponBlock.rotationSpeed; // Set rotation speed
         }
+
+        // Get or add a LineRenderer component
+        lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer == null)
+        {
+            lineRenderer = gameObject.AddComponent<LineRenderer>();
+        }
+
+        // Configure the LineRenderer
+        lineRenderer.startWidth = minLaserWidth;
+        lineRenderer.endWidth = minLaserWidth;
+        lineRenderer.positionCount = 2;
+        lineRenderer.colorGradient = laserColorGradient;
+        lineRenderer.enabled = false; // Initially disable the laser
     }
 
     void Update()
@@ -44,12 +65,60 @@ public class TurretController : MonoBehaviour
         // Apply the new rotation
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, newAngle));
 
-        // If mouse button down is detected, trigger custom function `OnMouseDown`.
-        if (Input.GetMouseButtonDown(0))
+        // If mouse button is held down, update and display the laser beam
+        if (Input.GetMouseButton(0))
         {
-            OnMouseDown();
+            Vector2 laserDirection = transform.up; 
+            lineRenderer.enabled = true; 
+            UpdateLaserBeam(direction);
+            //PulsateLaser();
+        }
+        else
+        {
+            lineRenderer.enabled = false;
         }
     }
+
+    private void UpdateLaserBeam(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity, collisionMask);
+
+        if (hit.collider != null)
+        {
+            // Laser hit something
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            // Laser did not hit anything
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, (Vector2)transform.position + direction * 1000f); // A far distance
+        }
+    }
+
+    private void PulsateLaser()
+    {
+        // Calculate the pulsating width
+        float pulse = Mathf.PingPong(Time.time * pulseSpeed, maxLaserWidth - minLaserWidth) + minLaserWidth;
+        lineRenderer.startWidth = pulse;
+        lineRenderer.endWidth = pulse;
+
+        // Optionally, you can also change the color gradient over time for an enhanced effect
+        // float colorTime = Mathf.PingPong(Time.time * pulseSpeed, 1);
+        // lineRenderer.colorGradient = GetColorGradient(colorTime);
+    }
+
+    // Optional: Create a color gradient based on the time value (uncomment if using color pulsation)
+    // private Gradient GetColorGradient(float time)
+    // {
+    //     Gradient gradient = new Gradient();
+    //     gradient.SetKeys(
+    //         new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.blue, 1.0f) },
+    //         new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) }
+    //     );
+    //     return gradient;
+    // }
 
     private void OnMouseDown()
     {

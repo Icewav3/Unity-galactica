@@ -5,8 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="base commit">
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestingGameScene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestingGameScene/Main Camera Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/TestingGameScene/Main Camera Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/Base.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/Base.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserMaterial.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserMaterial.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserVisual.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserVisual.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserVisual_Renderer.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Materials/LaserVisual_Renderer.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestingGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestingGameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/LaserTurret.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/LaserTurret.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Materials/Background.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Materials/Background.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurret.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Turret Base.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Turret Base.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +186,8 @@
       <workItem from="1719789094180" duration="1087000" />
       <workItem from="1720019614234" duration="641000" />
       <workItem from="1720144668143" duration="104000" />
-      <workItem from="1720144794803" duration="834000" />
+      <workItem from="1720144794803" duration="5920000" />
+      <workItem from="1720226069016" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>
