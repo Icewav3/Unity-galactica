@@ -7,6 +7,7 @@ public class TurretController : MonoBehaviour
 {
     private WeaponBlock weaponBlock;
     private float rotationSpeed;
+    private float maxRange;
     private LineRenderer lineRenderer;
 
     public LayerMask collisionMask; // Set this in the Inspector to specify what layers the laser should collide with
@@ -26,7 +27,9 @@ public class TurretController : MonoBehaviour
         }
         else
         {
-            rotationSpeed = weaponBlock.rotationSpeed; // Set rotation speed
+            //grab from weaponblock component
+            rotationSpeed = weaponBlock.rotationSpeed;
+            maxRange = weaponBlock.maxRange;
         }
 
         // Get or add a LineRenderer component
@@ -66,11 +69,11 @@ public class TurretController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, newAngle));
 
         // If mouse button is held down, update and display the laser beam
+        Vector2 turretDirection = transform.up;
         if (Input.GetMouseButton(0))
         {
-            Vector2 laserDirection = transform.up; 
             lineRenderer.enabled = true; 
-            UpdateLaserBeam(direction);
+            UpdateLaserBeam(turretDirection);
             //PulsateLaser();
         }
         else
@@ -81,8 +84,7 @@ public class TurretController : MonoBehaviour
 
     private void UpdateLaserBeam(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity, collisionMask);
-
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, maxRange, collisionMask);
         if (hit.collider != null)
         {
             // Laser hit something
@@ -91,9 +93,10 @@ public class TurretController : MonoBehaviour
         }
         else
         {
-            // Laser did not hit anything
+            // Laser did not hit anything - set to max range
+            Vector3 normalizedDirection = direction.normalized;
             lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, (Vector2)transform.position + direction * 1000f); // A far distance
+            lineRenderer.SetPosition(1, transform.position + normalizedDirection * maxRange);
         }
     }
 
