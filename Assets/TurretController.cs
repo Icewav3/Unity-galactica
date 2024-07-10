@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Content;
 using Content.Blocks;
 using UnityEngine;
 
@@ -9,7 +10,9 @@ public class TurretController : MonoBehaviour
     private float rotationSpeed;
     private float maxRange;
     private LineRenderer lineRenderer;
-
+    private AimType _aimType;
+    
+    
     public LayerMask collisionMask; // Set this in the Inspector to specify what layers the laser should collide with
     public Gradient laserColorGradient; // Assign a gradient in the Inspector to create a color pulsating effect
     public float pulseSpeed = 2f; // Speed of the pulsating effect
@@ -30,6 +33,7 @@ public class TurretController : MonoBehaviour
             //grab from weaponblock component
             rotationSpeed = weaponBlock.rotationSpeed;
             maxRange = weaponBlock.maxRange;
+            _aimType = weaponBlock.aimType;
         }
 
         // Get or add a LineRenderer component

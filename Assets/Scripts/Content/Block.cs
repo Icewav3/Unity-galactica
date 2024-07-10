@@ -60,7 +60,7 @@ namespace Content
     public enum AimType //TODO create aimtype class
     {
         Fixed,
-        Turret,
+        Auto,
         Cursor
     }
 
