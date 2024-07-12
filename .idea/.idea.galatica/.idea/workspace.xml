@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="base commit">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurretBlockBase.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurretBlockBase.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/Turrets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/block-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/block-5.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurret.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/TurretBlockBase.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/TurretBlockBase.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/LaserTurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/LaserTurretController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,6 +192,7 @@
       <workItem from="1720323589930" duration="3260000" />
       <workItem from="1720493127959" duration="391000" />
       <workItem from="1720550751154" duration="1232000" />
+      <workItem from="1720731183082" duration="7726000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>

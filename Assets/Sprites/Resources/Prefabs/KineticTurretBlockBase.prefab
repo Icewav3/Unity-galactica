@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7957343686795636947}
   - component: {fileID: 7717702172867698070}
-  - component: {fileID: 1198131055161216652}
+  - component: {fileID: 3140357983892016404}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -73,19 +73,19 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1198131055161216652
+--- !u!114 &3140357983892016404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7019453202855669569}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38916bec2a8cc64f90163fa29a15925, type: 3}
+  m_Script: {fileID: 11500000, guid: d7c25b8f0e3d4f91b8599fcd55252711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &24037202573478148
@@ -145,9 +145,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5895110554405318045, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_Name
-      value: TurretBlockBase
+      value: KineticTurretBlockBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -189,7 +197,10 @@ MonoBehaviour:
   blockName: Placeholder Name
   blockDescription: If you see this, this prefab is missing a description
   blockRole: Purpose of the block
+  dimensions: {x: 1, y: 1}
   AttachPoints: 00000000
+  rotationSpeed: 180
+  maxRange: 100
   heatGenerationPerShot: 1
   recoil: 1
   aimType: 0

@@ -30,6 +30,8 @@ namespace Content
 
         [SerializeField] public string blockRole = "Purpose of the block";
 
+        public Vector2 dimensions = new Vector2(1, 1); //This shows how much space in the build grid a block will take up
+
         public bool[] AttachPoints = new bool[4];
         
         /// <summary>
