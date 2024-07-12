@@ -1,4 +1,5 @@
-﻿using Content;
+﻿using Client.UI;
+using Content;
 using Content.Blocks;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ namespace Mechanics.TurretControllers
         protected float rotationSpeed;
         protected float maxRange;
         protected AimType _aimType;
+        protected EditorStateController _editorStateController;
+        protected bool isInEditorMode = true;
 
         protected virtual void Start()
         {
@@ -25,10 +28,16 @@ namespace Mechanics.TurretControllers
                 maxRange = weaponBlock.maxRange;
                 _aimType = weaponBlock.aimType;
             }
+
+            _editorStateController = GameObject.Find("ShipEditor").GetComponent<EditorStateController>();
+            _editorStateController.onEditorModeChanged.AddListener(OnEditorModeChanged);
         }
 
         protected void Update()
         {
+            // Return if in Editor mode
+            if (isInEditorMode) return;
+
             RotateTowardsMouse();
             if (Input.GetMouseButton(0))
                 FireWeapon();
@@ -40,7 +49,7 @@ namespace Mechanics.TurretControllers
             // TODO: Implement firing logic here
         }
 
-        protected void RotateTowardsMouse() 
+        protected void RotateTowardsMouse()
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
@@ -54,6 +63,11 @@ namespace Mechanics.TurretControllers
             float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
 
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, newAngle));
+        }
+
+        protected void OnEditorModeChanged(bool inEditorMode)
+        {
+            isInEditorMode = inEditorMode;
         }
     }
 }

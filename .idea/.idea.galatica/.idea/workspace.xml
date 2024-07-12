@@ -4,29 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="base commit">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurretBlockBase.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/LaserTurretBlockBase.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab.meta" afterDir="false" />
+    <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/autoCannonShot.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sounds/autoCannonShot.ogg.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/Turrets.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/block-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/block-5.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/TurretBlockBase.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/TurretBlockBase.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/LaserTurretController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TurretController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/LaserTurretController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +21,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Icewave &lt;coledorman12@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -45,6 +37,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -192,7 +187,8 @@
       <workItem from="1720323589930" duration="3260000" />
       <workItem from="1720493127959" duration="391000" />
       <workItem from="1720550751154" duration="1232000" />
-      <workItem from="1720731183082" duration="7726000" />
+      <workItem from="1720731183082" duration="8449000" />
+      <workItem from="1720805002996" duration="1029000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>
@@ -201,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692600366426</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Refactor turret controllers and delete unused prefab&#10;&#10;Refactored code for turret controllers splitting it into Laser and Kinetic turret controller classes. This involved moving TurretController.cs to a new directory and renaming it to LaserTurretController.cs. The KineticTurretController.cs is a newly added file. Also included in this commit is the deletion of an unused TurretBlockBase.prefab file for effective code management and improved performance.">
+      <option name="closed" value="true" />
+      <created>1720761479834</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720761479834</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +234,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="base commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="base commit" />
+    <MESSAGE value="Refactor turret controllers and delete unused prefab&#10;&#10;Refactored code for turret controllers splitting it into Laser and Kinetic turret controller classes. This involved moving TurretController.cs to a new directory and renaming it to LaserTurretController.cs. The KineticTurretController.cs is a newly added file. Also included in this commit is the deletion of an unused TurretBlockBase.prefab file for effective code management and improved performance." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor turret controllers and delete unused prefab&#10;&#10;Refactored code for turret controllers splitting it into Laser and Kinetic turret controller classes. This involved moving TurretController.cs to a new directory and renaming it to LaserTurretController.cs. The KineticTurretController.cs is a newly added file. Also included in this commit is the deletion of an unused TurretBlockBase.prefab file for effective code management and improved performance." />
   </component>
 </project>

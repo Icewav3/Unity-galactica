@@ -60,10 +60,22 @@ PrefabInstance:
       propertyPath: aimType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 8300000, guid: ae50bdbf41e942748a00b7d73fa1f104, type: 3}
     - target: {fileID: 5880230403032573081, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
       propertyPath: m_Name
       value: ThunderBird
       objectReference: {fileID: 0}
+    - target: {fileID: 6218041660885387904, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403640738377215135, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ae50bdbf41e942748a00b7d73fa1f104, type: 3}
     - target: {fileID: 7717702172867698070, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -72,7 +84,8 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7403640738377215135, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
