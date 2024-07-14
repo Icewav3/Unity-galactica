@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Sounds.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sounds/autoCannonShot.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sounds/autoCannonShot.ogg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/Turrets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/TurretControllerBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/KineticTurretBlockBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +184,8 @@
       <workItem from="1720493127959" duration="391000" />
       <workItem from="1720550751154" duration="1232000" />
       <workItem from="1720731183082" duration="8449000" />
-      <workItem from="1720805002996" duration="1029000" />
+      <workItem from="1720805002996" duration="2357000" />
+      <workItem from="1720926615807" duration="1276000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>
