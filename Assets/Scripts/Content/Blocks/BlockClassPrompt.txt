@@ -1,0 +1,56 @@
+Content Namespace
+Block (abstract class)
+
+Fields:
+maxHealth (float): Maximum health of the block.
+mass (float): Mass of the block.
+cost (int): Cost of the block.
+value (float): Value for matchmaking and spawning rules.
+blockName (string): Name of the block.
+blockDescription (string): Description of the block.
+blockRole (string): Role or purpose of the block.
+dimensions (Vector2): Dimensions of the block in the build grid.
+AttachPoints (bool[]): Array indicating attachment points. Position 1, 2, 3, 4 correlate to down, right, up, left.
+Methods:
+DestroyBlock(): Destroys the block and logs its name if debug mode is enabled.
+Start(): Initializes the block, disables specific child objects.
+Enums:
+
+AimType: Represents different aim types (Fixed, Auto, Cursor).
+ThrusterType: Represents different thruster types (Fixed, Gimballed, OmniDirectional).
+Content.Blocks Namespace
+MovementBlock (abstract class)
+
+Inherits from Block.
+Fields:
+fuel (FuelType): Type of fuel used.
+fuelConsumption (float): Fuel consumption rate.
+heatGeneration (float): Heat generated during operation.
+WeaponBlock (class)
+
+Inherits from Block.
+Fields:
+rotationSpeed (float): Rotation speed of the weapon.
+maxRange (float): Maximum range of the weapon.
+heatGenerationPerShot (float): Heat generated per shot.
+recoil (float): Recoil force.
+aimType (AimType): Aim type of the weapon.
+FuelTankBlock (class)
+
+Inherits from Block.
+Fields:
+explosive (bool): Indicates if the fuel tank is explosive.
+maxFuel (float): Maximum fuel capacity.
+CurrentFuel (float, private set): Current fuel level.
+Content.Blocks.MovementBlocks Namespace
+ThrusterBlock (class)
+
+Inherits from MovementBlock.
+Fields:
+type (ThrusterType): Type of thruster.
+thrustPower (float): Thrust power of the thruster.
+GyroscopeBlock (class)
+
+Inherits from MovementBlock.
+Fields:
+rotationPower (float): Rotation power provided by the gyroscope.
