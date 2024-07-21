@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/AutocannonBullet.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/AutocannonBullet.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/FuelTankBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/FuelTankBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/GyroscopeBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/GyroscopeBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/ThrusterBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/ThrusterBlock.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/ShipContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/ShipContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/../Basic RTS/Assets/Scripts/MapGen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Content/Fuel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/coled/Desktop/Unity/galatica/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,7 +66,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SOLID-Refactor&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -186,6 +196,8 @@
       <workItem from="1720731183082" duration="8449000" />
       <workItem from="1720805002996" duration="2357000" />
       <workItem from="1720926615807" duration="1276000" />
+      <workItem from="1721084056030" duration="4447000" />
+      <workItem from="1721160096462" duration="2870000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>

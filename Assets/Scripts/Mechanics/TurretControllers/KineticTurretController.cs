@@ -2,31 +2,44 @@
 using System.Collections.Generic;
 using Content;
 using Content.Blocks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Mechanics.TurretControllers
 {
     public class KineticTurretController : TurretControllerBase
     {
-        public AudioClip fire;
+        public AudioClip fireClip;
+        public GameObject projectilePrefab;
+        public Transform firePoint;
         private AudioSource _audioSource;
 
         protected override void Start()
         {
             base.Start();
             _audioSource = GetComponent<AudioSource>();
-            _audioSource.clip = fire;
+            _audioSource.clip = fireClip;
         }
 
         protected override void FireWeapon()
         {
-            //play clip, do not layer them
+            // Play firing sound if not already playing
             if (!_audioSource.isPlaying)
             {
                 _audioSource.Play();
             }
-            //implement your other firing logic here (if any)
+
+            // Instantiate and launch projectile
+            GameObject projectileInstance = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            ProjectileHandler projectileHandler = projectileInstance.GetComponent<ProjectileHandler>();
+            if (projectileHandler != null)
+            {
+                Vector2 launchDirection = firePoint.up; // Assuming the firePoint's up direction is the firing direction
+                Projectile projectileData = projectileInstance.GetComponent<Projectile>();
+                if (projectileData != null)
+                {
+                    projectileHandler.Initialize(projectileData, launchDirection, gameObject);
+                }
+            }
         }
     }
 }

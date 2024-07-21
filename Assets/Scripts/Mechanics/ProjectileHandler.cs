@@ -2,24 +2,42 @@
 using Content;
 using Mechanics;
 
-public class ProjectileHandler : MonoBehaviour //TODO ROUGH DRAFT
+public class ProjectileHandler : MonoBehaviour
 {
     private Projectile currentProjectile;
-    private Vector2 Direction;
-    private float distanceTravelled = 0f;
+    private Vector2 direction;
+    private GameObject shooter;
 
-    public void Initialize(Projectile projectile, Vector2 launchDirection)
+    public void Initialize(Projectile projectile, Vector2 launchDirection, GameObject shooter)
     {
         currentProjectile = projectile;
-        Direction = launchDirection.normalized;
+        direction = launchDirection.normalized;
+        this.shooter = shooter;
         currentProjectile.projectileHealth = currentProjectile.projectileMaxHealth;
+
+        // Initialize Rigidbody for physics-based movement
+        Rigidbody2D rb = currentProjectile.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = direction * currentProjectile.projectileSpeed;
+            rb.gravityScale = 0f; // No gravity
+            rb.drag = 0f;         // No drag
+            rb.angularDrag = 0f;  // No angular drag
+        }
+
+        // Ignore collisions with the shooter
+        Collider2D projectileCollider = currentProjectile.GetComponent<Collider2D>();
+        Collider2D shooterCollider = shooter.GetComponent<Collider2D>();
+        if (projectileCollider != null && shooterCollider != null)
+        {
+            Physics2D.IgnoreCollision(projectileCollider, shooterCollider);
+        }
     }
 
     private void Update()
     {
         if (currentProjectile)
         {
-            Move();
             CheckHealth();
         }
     }
@@ -28,23 +46,15 @@ public class ProjectileHandler : MonoBehaviour //TODO ROUGH DRAFT
     {
         if (currentProjectile.projectileHealth <= 0)
         {
-            if (currentProjectile is ExplosiveShell)
+            if (currentProjectile is ExplosiveShell explosiveShell)
             {
-                Explode((ExplosiveShell)currentProjectile);
+                Explode(explosiveShell);
             }
             Destroy(currentProjectile.gameObject);
         }
     }
 
-    private void Move()
-    {
-        float moveDist = currentProjectile.projectileSpeed * Time.deltaTime;
-        distanceTravelled += moveDist;
-        Vector3 direction3D = new Vector3(Direction.x, Direction.y, 0);
-        currentProjectile.transform.position += direction3D * moveDist;
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         HealthManager healthManager = other.GetComponent<HealthManager>();
         if (healthManager != null)
@@ -56,7 +66,7 @@ public class ProjectileHandler : MonoBehaviour //TODO ROUGH DRAFT
 
     private void Explode(ExplosiveShell shell)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(shell.transform.position, shell.explosionRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(shell.transform.position, shell.explosionRadius);
         foreach (var hitCollider in hitColliders)
         {
             HealthManager healthManager = hitCollider.GetComponent<HealthManager>();
@@ -64,6 +74,16 @@ public class ProjectileHandler : MonoBehaviour //TODO ROUGH DRAFT
             {
                 healthManager.TakeDamage(shell.explosionDamage);
             }
+        }
+    }
+
+    // Optional: Draw explosion radius in the editor
+    private void OnDrawGizmosSelected()
+    {
+        if (currentProjectile is ExplosiveShell shell)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(shell.transform.position, shell.explosionRadius);
         }
     }
 }

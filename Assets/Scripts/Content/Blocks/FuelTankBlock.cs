@@ -1,9 +1,20 @@
-﻿namespace Content.Blocks
+﻿using UnityEngine;
+
+namespace Content.Blocks
 {
     public class FuelTankBlock : Block
     {
-        public bool explosive = true;
-        public float maxFuel = 100f;
-        public float CurrentFuel { get; private set; }
+        [SerializeField] private bool explosive = true;
+        [SerializeField] private float maxFuel = 100f;
+        private float currentFuel;
+
+        public bool Explosive => explosive;
+        public float MaxFuel => maxFuel;
+        public float CurrentFuel => currentFuel;
+
+        public void Refuel(float amount)
+        {
+            currentFuel = Mathf.Clamp(currentFuel + amount, 0, maxFuel);
+        }
     }
 }

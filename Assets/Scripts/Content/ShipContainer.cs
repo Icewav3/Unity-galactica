@@ -217,7 +217,7 @@ namespace Content
                         Vector2 thrustDirection = block.transform
                             .up; // Assuming the thruster's forward direction is its "thrust" direction
                         Vector2 thrustContribution = thrustDirection *
-                            block.thrustPower / Mass;
+                            block.ThrustPower / Mass;
 
                         // Accumulate potential thrust contributions
                         PotentialThrustContribution += thrustContribution;
@@ -239,7 +239,7 @@ namespace Content
                     var block = shipObject.Grid[i, j].GetComponent<GyroscopeBlock>();
                     if (block != null)
                     {
-                        AngularAcceleration += block.rotationPower;
+                        AngularAcceleration += block.RotationPower;
                     }
                 }
             }
