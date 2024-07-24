@@ -65,6 +65,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: ae50bdbf41e942748a00b7d73fa1f104, type: 3}
     - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: fireClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ae50bdbf41e942748a00b7d73fa1f104, type: 3}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1445531631882884648}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: isExplosive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: explosionDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: explosionRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 4676517159460048833, guid: 9a26c10fb342e9b40be5331eb2477b50, type: 3}
@@ -94,3 +114,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+--- !u!4 &1445531631882884648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7957343686795636947, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+  m_PrefabInstance: {fileID: 8818512820663412475}
+  m_PrefabAsset: {fileID: 0}
