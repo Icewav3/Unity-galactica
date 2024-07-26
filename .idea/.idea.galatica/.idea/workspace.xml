@@ -4,39 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs.meta" afterDir="false" />
+    <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="Refactor projectile and block definitions&#10;&#10;Updated `ProjectileHandler` and related scripts to use new `ProjectileDef` and `ExplosiveShellDef` classes. Moved various block and projectile classes to a new `Defs` namespace to improve code organization and maintainability. Added new projectile attributes to `ThunderBird` prefab.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/ArmorBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/ArmorBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/ArmorBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/ArmorBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Block.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Block.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/BlockClassPrompt.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/BlockClassPrompt.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/BlockClassPrompt.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/FuelTankBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/FuelTankBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/FuelTankBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/FuelTankBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlocks.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/GyroscopeBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlocks/GyroscopeBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/GyroscopeBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlocks/GyroscopeBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/ThrusterBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlocks/ThrusterBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/MovementBlocks/ThrusterBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/MovementBlocks/ThrusterBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/WeaponBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/WeaponBlock.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Blocks/WeaponBlock.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Blocks/WeaponBlock.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Fuel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Fuel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Fuel.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/Fuel.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Projectile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/ShipContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ShipContainer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/ShipContainer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ShipContainer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/ProjectileHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Projectile.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +195,8 @@
       <workItem from="1721785218879" duration="11000" />
       <workItem from="1721785241577" duration="3934000" />
       <workItem from="1721873801110" duration="1020000" />
-      <workItem from="1721930902753" duration="6162000" />
+      <workItem from="1721930902753" duration="7959000" />
+      <workItem from="1722028070230" duration="4694000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>
@@ -238,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720761479834</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor projectile and block definitions&#10;&#10;Updated `ProjectileHandler` and related scripts to use new `ProjectileDef` and `ExplosiveShellDef` classes. Moved various block and projectile classes to a new `Defs` namespace to improve code organization and maintainability. Added new projectile attributes to `ThunderBird` prefab.">
+      <option name="closed" value="true" />
+      <created>1721963620175</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721963620175</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +251,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="base commit" />
     <MESSAGE value="Refactor turret controllers and delete unused prefab&#10;&#10;Refactored code for turret controllers splitting it into Laser and Kinetic turret controller classes. This involved moving TurretController.cs to a new directory and renaming it to LaserTurretController.cs. The KineticTurretController.cs is a newly added file. Also included in this commit is the deletion of an unused TurretBlockBase.prefab file for effective code management and improved performance." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor turret controllers and delete unused prefab&#10;&#10;Refactored code for turret controllers splitting it into Laser and Kinetic turret controller classes. This involved moving TurretController.cs to a new directory and renaming it to LaserTurretController.cs. The KineticTurretController.cs is a newly added file. Also included in this commit is the deletion of an unused TurretBlockBase.prefab file for effective code management and improved performance." />
+    <MESSAGE value="Refactor projectile and block definitions&#10;&#10;Updated `ProjectileHandler` and related scripts to use new `ProjectileDef` and `ExplosiveShellDef` classes. Moved various block and projectile classes to a new `Defs` namespace to improve code organization and maintainability. Added new projectile attributes to `ThunderBird` prefab." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor projectile and block definitions&#10;&#10;Updated `ProjectileHandler` and related scripts to use new `ProjectileDef` and `ExplosiveShellDef` classes. Moved various block and projectile classes to a new `Defs` namespace to improve code organization and maintainability. Added new projectile attributes to `ThunderBird` prefab." />
   </component>
 </project>

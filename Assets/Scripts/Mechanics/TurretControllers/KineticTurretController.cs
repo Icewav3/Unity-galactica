@@ -31,9 +31,8 @@ namespace Mechanics.TurretControllers
             _audioSource = GetComponent<AudioSource>();
             if (_audioSource == null)
             {
-                _audioSource = gameObject.AddComponent<AudioSource>();
+                Debug.LogWarning("No AudioSource");
             }
-            _audioSource.clip = fireClip;
         }
 
         protected override void FireWeapon()
@@ -52,8 +51,8 @@ namespace Mechanics.TurretControllers
 
             // Instantiate and launch projectile
             GameObject projectileInstance = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            ProjectileHandler projectileHandler = projectileInstance.GetComponent<ProjectileHandler>();
-            if (projectileHandler != null)
+            Projectile projectile = projectileInstance.GetComponent<Projectile>();
+            if (projectile != null)
             {
                 Vector2 launchDirection = firePoint.up; // Assuming the firePoint's up direction is the firing direction
                 ProjectileDef projectileData = projectileInstance.GetComponent<ProjectileDef>();
@@ -67,7 +66,7 @@ namespace Mechanics.TurretControllers
                         explosiveShell.explosionRadius = explosionRadius;
                         explosiveShell.explosionDamage = explosionDamage;
                     }
-                    projectileHandler.Initialize(projectileData, launchDirection, gameObject);
+                    projectile.Initialize(projectileData, launchDirection, gameObject);
                 }
             }
         }

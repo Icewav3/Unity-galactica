@@ -3,7 +3,7 @@ using Content;
 using Content.Defs;
 using Mechanics;
 
-public class ProjectileHandler : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     private ProjectileDef currentProjectile;
     private Vector2 direction;
