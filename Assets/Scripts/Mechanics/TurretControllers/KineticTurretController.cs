@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Content;
 using Content.Blocks;
+using Content.Defs;
 using UnityEngine;
 
 namespace Mechanics.TurretControllers
@@ -54,13 +56,13 @@ namespace Mechanics.TurretControllers
             if (projectileHandler != null)
             {
                 Vector2 launchDirection = firePoint.up; // Assuming the firePoint's up direction is the firing direction
-                Projectile projectileData = projectileInstance.GetComponent<Projectile>();
+                ProjectileDef projectileData = projectileInstance.GetComponent<ProjectileDef>();
                 if (projectileData != null)
                 {
                     projectileData.projectileSpeed = projectileSpeed;
                     projectileData.projectileMaxHealth = projectileMaxHealth;
                     projectileData.hitDamage = hitDamage;
-                    if (isExplosive && projectileData is ExplosiveShell explosiveShell)
+                    if (isExplosive && projectileData is ExplosiveShellDef explosiveShell)
                     {
                         explosiveShell.explosionRadius = explosionRadius;
                         explosiveShell.explosionDamage = explosionDamage;

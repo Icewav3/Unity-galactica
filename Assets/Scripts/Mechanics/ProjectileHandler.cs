@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using Content;
+using Content.Defs;
 using Mechanics;
 
 public class ProjectileHandler : MonoBehaviour
 {
-    private Projectile currentProjectile;
+    private ProjectileDef currentProjectile;
     private Vector2 direction;
     private GameObject shooter;
 
-    public void Initialize(Projectile projectile, Vector2 launchDirection, GameObject shooter)
+    public void Initialize(ProjectileDef projectile, Vector2 launchDirection, GameObject shooter)
     {
         currentProjectile = projectile;
         direction = launchDirection.normalized;
@@ -46,7 +47,7 @@ public class ProjectileHandler : MonoBehaviour
     {
         if (currentProjectile.projectileHealth <= 0)
         {
-            if (currentProjectile is ExplosiveShell explosiveShell)
+            if (currentProjectile is ExplosiveShellDef explosiveShell)
             {
                 Explode(explosiveShell);
             }
@@ -64,7 +65,7 @@ public class ProjectileHandler : MonoBehaviour
         }
     }
 
-    private void Explode(ExplosiveShell shell)
+    private void Explode(ExplosiveShellDef shell)
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(shell.transform.position, shell.explosionRadius);
         foreach (var hitCollider in hitColliders)
@@ -80,7 +81,7 @@ public class ProjectileHandler : MonoBehaviour
     // Optional: Draw explosion radius in the editor
     private void OnDrawGizmosSelected()
     {
-        if (currentProjectile is ExplosiveShell shell)
+        if (currentProjectile is ExplosiveShellDef shell)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(shell.transform.position, shell.explosionRadius);
