@@ -77,6 +77,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
+      propertyPath: projectileDef
+      value: 
+      objectReference: {fileID: 11400000, guid: 1069611621d649b428a988c4b48c2424, type: 2}
+    - target: {fileID: 3140357983892016404, guid: e44942d56be4e2e4b9347bb652d0595b, type: 3}
       propertyPath: explosionDamage
       value: 5
       objectReference: {fileID: 0}

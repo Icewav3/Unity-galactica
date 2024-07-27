@@ -1,18 +1,33 @@
-﻿using UnityEngine;
+﻿using Mechanics;
+using UnityEngine;
 
-namespace Content.Defs
+[CreateAssetMenu(fileName = "NewProjectile", menuName = "Projectiles/ProjectileDef")]
+public class ProjectileDef : ScriptableObject
 {
-    public class ProjectileDef : MonoBehaviour
-    {
-        public float hitDamage = 1f;
-        public float projectileMaxHealth = 1f;
-        public float projectileHealth = 1f;
-        public float projectileSpeed = 1f;
-    }
+    public float damage = 1f;
+    public float maxHealth = 1f;
+    public float speed = 1f;
+    public GameObject prefab;
 
-    public class ExplosiveShellDef : ProjectileDef
+    public virtual void OnHit(GameObject target, Vector2 hitPoint) { }
+}
+
+// ExplosiveProjectileDef.cs
+[CreateAssetMenu(fileName = "NewExplosiveProjectile", menuName = "Projectiles/ExplosiveProjectileDef")]
+public class ExplosiveProjectileDef : ProjectileDef
+{
+    public float explosionRadius = 1f;
+    public float explosionDamage = 1f;
+
+    public override void OnHit(GameObject target, Vector2 hitPoint)
     {
-        public float explosionRadius = 1f;
-        public float explosionDamage = 1f;
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(hitPoint, explosionRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.TryGetComponent<IDamageable>(out var damageable))
+            {
+                damageable.TakeDamage(explosionDamage);
+            }
+        }
     }
 }

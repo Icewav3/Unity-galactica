@@ -1,90 +1,35 @@
-﻿using UnityEngine;
-using Content;
-using Content.Defs;
-using Mechanics;
+﻿using Mechanics;
+using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(ProjectileHealthManager))]
 public class Projectile : MonoBehaviour
 {
-    private ProjectileDef currentProjectile;
-    private Vector2 direction;
-    private GameObject shooter;
+    private ProjectileDef _def;
+    private Rigidbody2D _rb;
+    private ProjectileHealthManager _healthManager;
 
-    public void Initialize(ProjectileDef projectile, Vector2 launchDirection, GameObject shooter)
+    public void Initialize(ProjectileDef def, Vector2 direction, GameObject shooter)
     {
-        currentProjectile = projectile;
-        direction = launchDirection.normalized;
-        this.shooter = shooter;
-        currentProjectile.projectileHealth = currentProjectile.projectileMaxHealth;
+        _def = def;
+        _rb = GetComponent<Rigidbody2D>();
+        _healthManager = GetComponent<ProjectileHealthManager>();
 
-        // Initialize Rigidbody for physics-based movement
-        Rigidbody2D rb = currentProjectile.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.velocity = direction * currentProjectile.projectileSpeed;
-            rb.gravityScale = 0f; // No gravity
-            rb.drag = 0f;         // No drag
-            rb.angularDrag = 0f;  // No angular drag
-        }
+        _rb.velocity = direction * def.speed;
+        _healthManager.SetMaxHealth(_def.maxHealth);
 
-        // Ignore collisions with the shooter
-        Collider2D projectileCollider = currentProjectile.GetComponent<Collider2D>();
-        Collider2D shooterCollider = shooter.GetComponent<Collider2D>();
-        if (projectileCollider != null && shooterCollider != null)
+        if (shooter.TryGetComponent<Collider2D>(out var shooterCollider))
         {
-            Physics2D.IgnoreCollision(projectileCollider, shooterCollider);
-        }
-    }
-
-    private void Update()
-    {
-        if (currentProjectile)
-        {
-            CheckHealth();
-        }
-    }
-
-    private void CheckHealth()
-    {
-        if (currentProjectile.projectileHealth <= 0)
-        {
-            if (currentProjectile is ExplosiveShellDef explosiveShell)
-            {
-                Explode(explosiveShell);
-            }
-            Destroy(currentProjectile.gameObject);
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), shooterCollider);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        HealthManager healthManager = other.GetComponent<HealthManager>();
-        if (healthManager != null)
+        if (other.TryGetComponent<IDamageable>(out var damageable))
         {
-            healthManager.TakeDamage(currentProjectile.hitDamage);
-            currentProjectile.projectileHealth -= 1f;
-        }
-    }
-
-    private void Explode(ExplosiveShellDef shell)
-    {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(shell.transform.position, shell.explosionRadius);
-        foreach (var hitCollider in hitColliders)
-        {
-            HealthManager healthManager = hitCollider.GetComponent<HealthManager>();
-            if (healthManager != null)
-            {
-                healthManager.TakeDamage(shell.explosionDamage);
-            }
-        }
-    }
-
-    // Optional: Draw explosion radius in the editor
-    private void OnDrawGizmosSelected()
-    {
-        if (currentProjectile is ExplosiveShellDef shell)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(shell.transform.position, shell.explosionRadius);
+            damageable.TakeDamage(_def.damage);
+            _def.OnHit(other.gameObject, transform.position);
+            Destroy(gameObject);
         }
     }
 }
