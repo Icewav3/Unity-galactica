@@ -21,6 +21,7 @@ namespace Mechanics.TurretControllers
 
         protected override void FireWeapon()
         {
+            if (Time.time < _nextFireTime) return;
             if (firePoint == null || projectileDef == null) return;
 
             _audioSource.PlayOneShot(fireClip);
