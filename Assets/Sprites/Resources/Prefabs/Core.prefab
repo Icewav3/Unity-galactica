@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2495e2fabb98311478fb75a1fb136b6b, type: 3}
   m_Color: {r: 0, g: 1, b: 0.91608214, a: 1}
   m_FlipX: 0
@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2431618294114260635, guid: ea715e829e985c34f9adc3ec575d8644, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -205,4 +205,5 @@ MonoBehaviour:
   blockName: Placeholder Name
   blockDescription: If you see this, this prefab is missing a description
   blockRole: Purpose of the block
+  dimensions: {x: 1, y: 1}
   AttachPoints: 01010101

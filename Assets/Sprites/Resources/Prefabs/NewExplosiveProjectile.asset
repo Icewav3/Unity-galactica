@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExplosiveProjectileDef
   damage: 1
   maxHealth: 1
-  speed: 1
+  speed: 10
   prefab: {fileID: 4676517159460048833, guid: 9a26c10fb342e9b40be5331eb2477b50, type: 3}

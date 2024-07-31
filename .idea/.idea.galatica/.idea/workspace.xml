@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14108496-0983-4b58-9513-f85f6487a4e1" name="Changes" comment="Refactor projectile and block definitions&#10;&#10;Updated `ProjectileHandler` and related scripts to use new `ProjectileDef` and `ExplosiveShellDef` classes. Moved various block and projectile classes to a new `Defs` namespace to improve code organization and maintainability. Added new projectile attributes to `ThunderBird` prefab.">
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/BlockSprites/thunderbird.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/BlockSprites/thunderbird.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.galatica/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Content/Defs/ProjectileDef.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Projectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/TurretControllers/KineticTurretController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/Core.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/Core.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/NewExplosiveProjectile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/NewExplosiveProjectile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Resources/Prefabs/ThunderBird.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +201,9 @@
       <workItem from="1721930902753" duration="7959000" />
       <workItem from="1722028070230" duration="5737000" />
       <workItem from="1722037168101" duration="1243000" />
-      <workItem from="1722208731368" duration="392000" />
+      <workItem from="1722208731368" duration="410000" />
+      <workItem from="1722377252985" duration="108000" />
+      <workItem from="1722377375783" duration="4326000" />
     </task>
     <task id="LOCAL-00001" summary="base commit">
       <created>1692600366426</created>
